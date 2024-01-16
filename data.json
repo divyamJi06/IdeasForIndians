@@ -176,40 +176,15 @@
     },
     "suggestions": [
       {
-        "id": 1,
-        "likes": 6,
+        "likes": 0,
         "isAnonymous": false,
-        "description": "Love it! Maybe explore partnerships with IoT device manufacturers.",
+        "description": "Fantastic IDea. Would love to work with you.",
         "user": {
-          "name": "Jake Roberts",
-          "email": "jake.roberts@example.com",
+          "name": "John Smith",
+          "email": "john.smith@example.com",
           "phone": null
-        }
-      },
-      {
-        "id": 2,
-        "likes": 15,
-        "isAnonymous": true,
-        "description": "Impressive! How about integrating voice assistants for added convenience?",
-        "user": {}
-      },
-      {
-        "id": 3,
-        "likes": 8,
-        "isAnonymous": false,
-        "description": "Fantastic idea! Consider creating partnerships with educational content providers.",
-        "user": {
-          "name": "Helen Davis",
-          "email": "helen.davis@example.com",
-          "phone": null
-        }
-      },
-      {
-        "id": 4,
-        "likes": 5,
-        "isAnonymous": true,
-        "description": "Great potential! Think about accessibility for differently-abled learners.",
-        "user": {}
+        },
+        "id": 1
       }
     ]
   }
