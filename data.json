@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Revolutionary Health App",
     "description": "Develop a health app that combines AI and real-time data to provide personalized health recommendations.",
-    "tags": [
+     "tags": [
       "Health",
       "AI"
     ],
@@ -96,9 +96,9 @@
       },
       {
         "id": 2,
-        "likes": 10,
+        "likes": 16,
         "isAnonymous": true,
-        "description": "Brilliant! Explore partnerships with local governments to promote adoption.",
+        "description": "Great idea! A lot of funds could be generated.",
         "user": {}
       }
     ]
@@ -155,23 +155,50 @@
       "email": "isabel.carter@example.com",
       "phone": "5559876543"
     },
-    "suggestions": []
-  },
-  {
-    "id": 6,
-    "title": "Innovative Sustainable Agriculture App",
-    "description": "Proposing an app that empowers farmers with sustainable practices and connects them with modern agricultural resources.",
-    "tags": [
-      "Agriculture",
-      "Technology",
-      "Sustainability"
-    ],
-    "likes": 0,
-    "user": {
-      "name": "New User",
-      "email": "newuser@example.com",
-      "phone": "9876543210"
-    },
-    "suggestions": []
+    "suggestions": [
+      {
+        "id": 1,
+        "likes": 6,
+        "isAnonymous": false,
+        "description": "Love it! Maybe explore partnerships with IoT device manufacturers.",
+        "user": {
+          "name": "Jake Roberts",
+          "email": "jake.roberts@example.com",
+          "phone": null
+        }
+      },
+      {
+        "id": 2,
+        "likes": 15,
+        "isAnonymous": true,
+        "description": "Impressive! How about integrating voice assistants for added convenience?",
+        "user": {}
+      },
+      {
+        "id": 3,
+        "likes": 8,
+        "isAnonymous": false,
+        "description": "Fantastic idea! Consider creating partnerships with educational content providers.",
+        "user": {
+          "name": "Helen Davis",
+          "email": "helen.davis@example.com",
+          "phone": null
+        }
+      },
+      {
+        "id": 4,
+        "likes": 5,
+        "isAnonymous": true,
+        "description": "Great potential! Think about accessibility for differently-abled learners.",
+        "user": {}
+      },
+      {
+        "id": 5,
+        "likes": 8,
+        "isAnonymous": true,
+        "description": "Great idea! Have you thought about potential regulatory challenges?",
+        "user": {}
+      }
+    ]
   }
 ]
