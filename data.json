@@ -3,6 +3,8 @@
     "id": 1,
     "title": "Revolutionary Health App",
     "description": "Develop a health app that combines AI and real-time data to provide personalized health recommendations.",
+    "title": "Revolutionary Health App",
+    "description": "Develop a health app that combines AI and real-time data to provide personalized health recommendations.",
     "tags": [
       "Health",
       "AI"
@@ -93,12 +95,40 @@
           "email": "franklin.chang@example.com",
           "phone": "1239876540"
         }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Eco-friendly Packaging Solution",
+    "description": "Create sustainable and biodegradable packaging materials to reduce environmental impact.",
+    "tags": [
+      "Environment",
+      "Innovation"
+    ],
+    "likes": 5,
+    "user": {
+      "name": "Eva Rodriguez",
+      "email": "eva.rodriguez@example.com",
+      "phone": "9871234560"
+    },
+    "suggestions": [
+      {
+        "id": 1,
+        "likes": 2,
+        "isAnonymous": false,
+        "description": "Love the idea! Have you considered collaborating with eco-conscious brands?",
+        "user": {
+          "name": "Jane Smith",
+          "email": "janeSmith.1112!gmail.com",
+          "phone": null
+        }
       },
       {
         "id": 2,
-        "likes": 10,
+        "likes": 16,
         "isAnonymous": true,
-        "description": "Brilliant! Explore partnerships with local governments to promote adoption.",
+        "description": "Great idea! A lot of funds could be generated.",
         "user": {}
       }
     ]
