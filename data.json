@@ -200,5 +200,34 @@
         "user": {}
       }
     ]
+  },
+  {
+    "title": "Innovative Sustainable Agriculture App",
+    "description": "Proposing an app that empowers farmers with sustainable practices and connects them with modern agricultural resources.",
+    "tags": [
+      "Agriculture",
+      "Technology",
+      "Sustainability"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "New User",
+      "email": "newuser@example.com",
+      "phone": "9876543210"
+    },
+    "suggestions": [
+      {
+        "likes": 0,
+        "isAnonymous": false,
+        "description": "Fantastic IDea. Would love to work with you.",
+        "user": {
+          "name": "John Smith",
+          "email": "john.smith@example.com",
+          "phone": null
+        },
+        "id": 1
+      }
+    ],
+    "id": 6
   }
 ]
