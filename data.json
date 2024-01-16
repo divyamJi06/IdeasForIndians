@@ -66,15 +66,7 @@
       "email": "charlie.williams@example.com",
       "phone": "5551234567"
     },
-    "suggestions": [
-      {
-        "likes": 0,
-        "isAnonymous": true,
-        "description": "You can create a portal that could do some analytics",
-        "user": {},
-        "id": 1
-      }
-    ]
+    "suggestions": []
   },
   {
     "id": 3,
@@ -237,5 +229,21 @@
       }
     ],
     "id": 6
+  },
+  {
+    "title": "Online Website to validate ideas",
+    "description": "Poeple will write in their ideas and other will validate it.",
+    "tags": [
+      "Technology",
+      "Sustainability"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "Demo User",
+      "email": "demouser@example.com",
+      "phone": "761346933"
+    },
+    "suggestions": [],
+    "id": 7
   }
 ]
