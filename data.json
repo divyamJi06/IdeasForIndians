@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Revolutionary Health App",
     "description": "Develop a health app that combines AI and real-time data to provide personalized health recommendations.",
-    "tags": [
+     "tags": [
       "Health",
       "AI"
     ],
@@ -200,5 +200,67 @@
         "user": {}
       }
     ]
+  },
+  {
+    "title": "Innovative Sustainable Agriculture App",
+    "description": "Proposing an app that empowers farmers with sustainable practices and connects them with modern agricultural resources.",
+    "tags": [
+      "Agriculture",
+      "Technology",
+      "Sustainability"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "New User",
+      "email": "newuser@example.com",
+      "phone": "9876543210"
+    },
+    "suggestions": [
+      {
+        "likes": 0,
+        "isAnonymous": false,
+        "description": "Fantastic IDea. Would love to work with you.",
+        "user": {
+          "name": "John Smith",
+          "email": "john.smith@example.com",
+          "phone": null
+        },
+        "id": 1
+      }
+    ],
+    "id": 6
+  },
+  {
+    "title": "Online Website to validate ideas",
+    "description": "Poeple will write in their ideas and other will validate it.",
+    "tags": [
+      "Technology",
+      "Sustainability"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "Demo User",
+      "email": "demouser@example.com",
+      "phone": "761346933"
+    },
+    "suggestions": [],
+    "id": 7
+  },
+  {
+    "title": "Building robotic models",
+    "description": "Automate daily tasks",
+    "tags": [
+      "Technology",
+      "Sustainability",
+      "Robotics"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "Sanidhya User",
+      "email": "sandx@example.com",
+      "phone": "878194"
+    },
+    "suggestions": [],
+    "id": 8
   }
 ]
