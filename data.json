@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Revolutionary Health App",
     "description": "Develop a health app that combines AI and real-time data to provide personalized health recommendations.",
-     "tags": [
+    "tags": [
       "Health",
       "AI"
     ],
@@ -200,5 +200,22 @@
         "user": {}
       }
     ]
+  },
+  {
+    "title": "Innovative Sustainable Agriculture App",
+    "description": "Proposing an app that empowers farmers with sustainable practices and connects them with modern agricultural resources.",
+    "tags": [
+      "Agriculture",
+      "Technology",
+      "Sustainability"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "New User",
+      "email": "newuser@example.com",
+      "phone": "9876543210"
+    },
+    "suggestions": [],
+    "id": 6
   }
 ]
