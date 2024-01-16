@@ -89,9 +89,9 @@
         "isAnonymous": false,
         "description": "Love the idea! Have you considered collaborating with eco-conscious brands?",
         "user": {
-          "name": "Franklin Chang",
-          "email": "franklin.chang@example.com",
-          "phone": "1239876540"
+          "name": "Jane Smith",
+          "email": "janeSmith.1112!gmail.com",
+          "phone": null
         }
       },
       {
@@ -99,8 +99,6 @@
         "likes": 10,
         "isAnonymous": true,
         "description": "Brilliant! Explore partnerships with local governments to promote adoption.",
-        "user": {}
-        "description": "Great idea! A lot of funds could be generated.",
         "user": {}
       }
     ]
