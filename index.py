@@ -50,9 +50,9 @@ new_suggestion_data = {
             }}
 
 # For Ideas
-createCommit("newidea",new_idea_data = new_idea_data)
+# createCommit("newidea",new_idea_data = new_idea_data)
 
 
-idea_id = 1
+# idea_id = 6
 # For suggestions
 # createCommit(typeOfData= "newsuggestion", new_suggestion_data = new_suggestion_data, idea_id=idea_id)
