@@ -215,7 +215,19 @@
       "email": "newuser@example.com",
       "phone": "9876543210"
     },
-    "suggestions": [],
+    "suggestions": [
+      {
+        "likes": 0,
+        "isAnonymous": false,
+        "description": "Fantastic IDea. Would love to work with you.",
+        "user": {
+          "name": "John Smith",
+          "email": "john.smith@example.com",
+          "phone": null
+        },
+        "id": 1
+      }
+    ],
     "id": 6
   }
 ]
