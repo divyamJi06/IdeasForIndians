@@ -245,5 +245,22 @@
     },
     "suggestions": [],
     "id": 7
+  },
+  {
+    "title": "Building robotic models",
+    "description": "Automate daily tasks",
+    "tags": [
+      "Technology",
+      "Sustainability",
+      "Robotics"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "Sanidhya User",
+      "email": "sandx@example.com",
+      "phone": "878194"
+    },
+    "suggestions": [],
+    "id": 8
   }
 ]
