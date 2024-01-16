@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "title": "Sample Idea",
+        "description": "This is a sample idea.",
+        "tags": [
+            "Finance",
+            "ML"
+        ],
+        "likes": 2,
+        "user": {
+            "name": "John Doe",
+            "email": "johndoe.11!gmail.com",
+            "phone": "1234567890"
+        },
+        "suggestions": [
+            {
+                "id": 1,
+                "likes": 0,
+                "isAnonymous": false,
+                "description": "Great idea! I suggest adding XYZ.",
+                "user": {
+                    "name": "Jane Smith",
+                    "email": "janeSmith.1112!gmail.com",
+                    "phone": null
+                }
+            },
+            {
+                "id": 2,
+                "likes": 16,
+                "isAnonymous": true,
+                "description": "Great idea! A lot of funds could be generated.",
+                "user": {}
+            }
+        ]
+    }
+]
