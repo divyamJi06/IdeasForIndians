@@ -212,20 +212,14 @@
         "user": {}
       },
       {
-        "title": "Revolutionary App Concept",
-        "description": "Imagine an app that revolutionizes the way we interact with technology.",
-        "tags": [
-          "Technology",
-          "Innovation",
-          "Mobile"
-        ],
         "likes": 0,
+        "isAnonymous": false,
+        "description": "Fantastic IDea. Would love to work with you.",
         "user": {
-          "name": "Jane Doe",
-          "email": "jane.doe@example.com",
-          "phone": "9876543210"
+          "name": "John Smith",
+          "email": "john.smith@example.com",
+          "phone": null
         },
-        "suggestions": [],
         "id": 5
       }
     ]
