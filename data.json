@@ -66,19 +66,7 @@
       "email": "charlie.williams@example.com",
       "phone": "5551234567"
     },
-    "suggestions": [
-      {
-        "id": 1,
-        "likes": 3,
-        "isAnonymous": false,
-        "description": "Interesting! Consider incorporating smart contracts for automated transactions.",
-        "user": {
-          "name": "David Turner",
-          "email": "david.turner@example.com",
-          "phone": null
-        }
-      }
-    ]
+    "suggestions": []
   },
   {
     "id": 3,
@@ -111,13 +99,6 @@
         "likes": 10,
         "isAnonymous": true,
         "description": "Brilliant! Explore partnerships with local governments to promote adoption.",
-        "user": {}
-      },
-      {
-        "id": 3,
-        "likes": 8,
-        "isAnonymous": true,
-        "description": "Great idea! Have you thought about potential regulatory challenges?",
         "user": {}
       }
     ]
@@ -174,10 +155,53 @@
       "email": "isabel.carter@example.com",
       "phone": "5559876543"
     },
-    "suggestions": []
+    "suggestions": [
+      {
+        "id": 1,
+        "likes": 6,
+        "isAnonymous": false,
+        "description": "Love it! Maybe explore partnerships with IoT device manufacturers.",
+        "user": {
+          "name": "Jake Roberts",
+          "email": "jake.roberts@example.com",
+          "phone": null
+        }
+      },
+      {
+        "id": 2,
+        "likes": 15,
+        "isAnonymous": true,
+        "description": "Impressive! How about integrating voice assistants for added convenience?",
+        "user": {}
+      },
+      {
+        "id": 3,
+        "likes": 8,
+        "isAnonymous": false,
+        "description": "Fantastic idea! Consider creating partnerships with educational content providers.",
+        "user": {
+          "name": "Helen Davis",
+          "email": "helen.davis@example.com",
+          "phone": null
+        }
+      },
+      {
+        "id": 4,
+        "likes": 5,
+        "isAnonymous": true,
+        "description": "Great potential! Think about accessibility for differently-abled learners.",
+        "user": {}
+      },
+      {
+        "id": 5,
+        "likes": 8,
+        "isAnonymous": true,
+        "description": "Great idea! Have you thought about potential regulatory challenges?",
+        "user": {}
+      }
+    ]
   },
   {
-    "id": 6,
     "title": "Innovative Sustainable Agriculture App",
     "description": "Proposing an app that empowers farmers with sustainable practices and connects them with modern agricultural resources.",
     "tags": [
@@ -191,6 +215,7 @@
       "email": "newuser@example.com",
       "phone": "9876543210"
     },
-    "suggestions": []
+    "suggestions": [],
+    "id": 6
   }
 ]
