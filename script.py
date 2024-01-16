@@ -223,6 +223,29 @@ def update_branch_reference(username, repository, branch, new_commit_sha, token)
         response = requests.patch(url, headers=headers, json=data)
         response.raise_for_status()  # Check for errors
         print(f"Updated {branch} branch reference to new commit")
+        create_pull_request(username,repository,"master", branch, "Merge the new idea" , "New Idea/suggestion added", token)
     except requests.exceptions.RequestException as e:
         print(f"Error updating branch reference on GitHub: {e}")
 
+
+def create_pull_request(username, repository, base_branch, compare_branch, title, body, token):
+    url = f'https://api.github.com/repos/{username}/{repository}/pulls'
+    
+    try:
+        headers = {
+            'Authorization': f'token {token}',
+            'Accept': 'application/vnd.github.v3+json'
+        }
+
+        data = {
+            'title': title,
+            'body': body,
+            'head': compare_branch,
+            'base': base_branch
+        }
+
+        response = requests.post(url, headers=headers, json=data)
+        response.raise_for_status()  # Check for errors
+        print("Pull request created successfully!")
+    except requests.exceptions.RequestException as e:
+        print(f"Error creating pull request on GitHub: {e}")
