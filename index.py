@@ -27,7 +27,6 @@ def createCommit( typeOfData, new_idea_data= None,new_suggestion_data = None,ide
 
 
 new_idea_data = {
-    "id": 125,
     "title": "Innovative Sustainable Agriculture App",
     "description": "Proposing an app that empowers farmers with sustainable practices and connects them with modern agricultural resources.",
     "tags": ["Agriculture", "Technology", "Sustainability"],
