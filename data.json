@@ -66,7 +66,15 @@
       "email": "charlie.williams@example.com",
       "phone": "5551234567"
     },
-    "suggestions": []
+    "suggestions": [
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "You can create a portal that could do some analytics",
+        "user": {},
+        "id": 1
+      }
+    ]
   },
   {
     "id": 3,
