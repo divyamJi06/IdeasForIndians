@@ -212,22 +212,5 @@
         "user": {}
       }
     ]
-  },
-  {
-    "title": "Revolutionary App Concept",
-    "description": "Imagine an app that revolutionizes the way we interact with technology.",
-    "tags": [
-      "Technology",
-      "Innovation",
-      "Mobile"
-    ],
-    "likes": 0,
-    "user": {
-      "name": "Jane Doe",
-      "email": "jane.doe@example.com",
-      "phone": "9876543210"
-    },
-    "suggestions": [],
-    "id": 6
   }
 ]
