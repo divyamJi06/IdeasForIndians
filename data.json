@@ -3,7 +3,7 @@
     "id": 1,
     "title": "Revolutionary Health App",
     "description": "Develop a health app that combines AI and real-time data to provide personalized health recommendations.",
-    "tags": [
+     "tags": [
       "Health",
       "AI"
     ],
@@ -66,19 +66,7 @@
       "email": "charlie.williams@example.com",
       "phone": "5551234567"
     },
-    "suggestions": [
-      {
-        "id": 1,
-        "likes": 3,
-        "isAnonymous": false,
-        "description": "Interesting! Consider incorporating smart contracts for automated transactions.",
-        "user": {
-          "name": "David Turner",
-          "email": "david.turner@example.com",
-          "phone": null
-        }
-      }
-    ]
+    "suggestions": []
   },
   {
     "id": 3,
@@ -101,23 +89,16 @@
         "isAnonymous": false,
         "description": "Love the idea! Have you considered collaborating with eco-conscious brands?",
         "user": {
-          "name": "Franklin Chang",
-          "email": "franklin.chang@example.com",
-          "phone": "1239876540"
+          "name": "Jane Smith",
+          "email": "janeSmith.1112!gmail.com",
+          "phone": null
         }
       },
       {
         "id": 2,
-        "likes": 10,
+        "likes": 16,
         "isAnonymous": true,
-        "description": "Brilliant! Explore partnerships with local governments to promote adoption.",
-        "user": {}
-      },
-      {
-        "id": 3,
-        "likes": 8,
-        "isAnonymous": true,
-        "description": "Great idea! Have you thought about potential regulatory challenges?",
+        "description": "Great idea! A lot of funds could be generated.",
         "user": {}
       }
     ]
@@ -210,114 +191,14 @@
         "isAnonymous": true,
         "description": "Great potential! Think about accessibility for differently-abled learners.",
         "user": {}
-      }
-    ]
-  },
-  {
-    "title": "New Idea",
-    "description": "This is a brand new idea.",
-    "tags": [
-      "Innovation"
-    ],
-    "likes": 0,
-    "user": {
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "phone": "1234567890"
-    },
-    "suggestions": [
-      {
-        "likes": 0,
-        "isAnonymous": true,
-        "description": "Great idea! I suggest adding more details Anonymously.",
-        "user": {},
-        "id": 1
       },
       {
-        "likes": 0,
+        "id": 5,
+        "likes": 8,
         "isAnonymous": true,
-        "description": "Great idea! I suggest adding more details Anonymously.",
-        "user": {},
-        "id": 2
+        "description": "Great idea! Have you thought about potential regulatory challenges?",
+        "user": {}
       }
-    ],
-    "id": 6
-  },
-  {
-    "title": "New Idea",
-    "description": "This is a brand new idea.",
-    "tags": [
-      "Innovation"
-    ],
-    "likes": 0,
-    "user": {
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "phone": "1234567890"
-    },
-    "suggestions": [
-      {
-        "likes": 0,
-        "isAnonymous": true,
-        "description": "Great idea! I suggest adding more details Anonymously.",
-        "user": {},
-        "id": 1
-      }
-    ],
-    "id": 7
-  },
-  {
-    "title": "New Idea",
-    "description": "This is a brand new idea.",
-    "tags": [
-      "Innovation"
-    ],
-    "likes": 0,
-    "user": {
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "phone": "1234567890"
-    },
-    "suggestions": [
-      {
-        "likes": 0,
-        "isAnonymous": true,
-        "description": "Great idea! I suggest adding more details Anonymously.",
-        "user": {},
-        "id": 1
-      }
-    ],
-    "id": 8
-  },
-  {
-    "title": "New Idea",
-    "description": "This is a brand new idea.",
-    "tags": [
-      "Innovation"
-    ],
-    "likes": 0,
-    "user": {
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "phone": "1234567890"
-    },
-    "suggestions": [],
-    "id": 9
-  },
-  {
-    "id": 123,
-    "title": "New Idea",
-    "description": "This is a new idea.",
-    "tags": [
-      "Technology",
-      "Innovation"
-    ],
-    "likes": 0,
-    "user": {
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "phone": "1234567890"
-    },
-    "suggestions": []
+    ]
   }
 ]
