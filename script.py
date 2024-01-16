@@ -1,9 +1,6 @@
 import requests
 import json
 
-
-
-
 def edit_and_commit_file(username, repository, file_path, branch, token, new_content, commit_message, typeOfData, idea_id=1):
     # Fetch the current content of the file
     current_content = get_github_file_contents(username, repository, file_path, "master", token)
