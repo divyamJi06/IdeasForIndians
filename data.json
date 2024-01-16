@@ -89,34 +89,6 @@
         "isAnonymous": false,
         "description": "Love the idea! Have you considered collaborating with eco-conscious brands?",
         "user": {
-          "name": "Franklin Chang",
-          "email": "franklin.chang@example.com",
-          "phone": "1239876540"
-        }
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "title": "Eco-friendly Packaging Solution",
-    "description": "Create sustainable and biodegradable packaging materials to reduce environmental impact.",
-    "tags": [
-      "Environment",
-      "Innovation"
-    ],
-    "likes": 5,
-    "user": {
-      "name": "Eva Rodriguez",
-      "email": "eva.rodriguez@example.com",
-      "phone": "9871234560"
-    },
-    "suggestions": [
-      {
-        "id": 1,
-        "likes": 2,
-        "isAnonymous": false,
-        "description": "Love the idea! Have you considered collaborating with eco-conscious brands?",
-        "user": {
           "name": "Jane Smith",
           "email": "janeSmith.1112!gmail.com",
           "phone": null
