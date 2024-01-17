@@ -243,7 +243,43 @@
       "email": "demouser@example.com",
       "phone": "761346933"
     },
-    "suggestions": [],
+    "suggestions": [
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "Feel Free to connect",
+        "user": {},
+        "id": 1
+      },
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "Feel Free to connect",
+        "user": {},
+        "id": 2
+      },
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "You can create a portal that could do some analytics",
+        "user": {},
+        "id": 3
+      },
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "You can create a portal that could do some analytics",
+        "user": {},
+        "id": 4
+      },
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "You can create a portal that could do some analytics",
+        "user": {},
+        "id": 5
+      }
+    ],
     "id": 7
   },
   {
@@ -260,7 +296,116 @@
       "email": "sandx@example.com",
       "phone": "878194"
     },
-    "suggestions": [],
+    "suggestions": [
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "Lots can be added into the project",
+        "user": {},
+        "id": 1
+      },
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "Feel Free to connect",
+        "user": {},
+        "id": 2
+      },
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "Feel Free to connect",
+        "user": {},
+        "id": 3
+      }
+    ],
     "id": 8
+  },
+  {
+    "title": "AgriTech Product",
+    "description": "Agricultural products",
+    "tags": [
+      "Technology",
+      "Sustainability",
+      "Agriculture"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "Divyam User",
+      "email": "div@example.com",
+      "phone": "878194"
+    },
+    "suggestions": [],
+    "id": 9
+  },
+  {
+    "title": "TechGadget XYZ",
+    "description": "Cutting-edge technology gadget",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Electronics"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "phone": "555-1234"
+    },
+    "suggestions": [],
+    "id": 10
+  },
+  {
+    "title": "Innovative Tech Solutions",
+    "description": "Revolutionizing the way we interact with technology.",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Electronics"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "Alex Smith",
+      "email": "alex.smith@example.com",
+      "phone": "555-9876"
+    },
+    "suggestions": [
+      {
+        "likes": 10,
+        "isAnonymous": false,
+        "description": "Great concept! Consider incorporating AI for a smarter experience.",
+        "user": {
+          "name": "Emily Johnson",
+          "email": "emily.johnson@example.com",
+          "phone": "555-1234"
+        },
+        "id": 1
+      },
+      {
+        "likes": 5,
+        "isAnonymous": true,
+        "description": "I suggest exploring partnerships with major tech companies.",
+        "user": {},
+        "id": 2
+      }
+    ],
+    "id": 11
+  },
+  {
+    "title": "Innovative Tech Solutions",
+    "description": "Revolutionizing the way we interact with technology.",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Electronics"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "Alex Smith",
+      "email": "alex.smith@example.com",
+      "phone": "555-9876"
+    },
+    "suggestions": [],
+    "id": 12
   }
 ]
