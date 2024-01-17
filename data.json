@@ -274,6 +274,13 @@
         "description": "Feel Free to connect",
         "user": {},
         "id": 2
+      },
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "Feel Free to connect",
+        "user": {},
+        "id": 3
       }
     ],
     "id": 8
@@ -294,22 +301,5 @@
     },
     "suggestions": [],
     "id": 9
-  },
-  {
-    "title": "TechGadget XYZ",
-    "description": "Cutting-edge technology gadget",
-    "tags": [
-      "Technology",
-      "Innovation",
-      "Electronics"
-    ],
-    "likes": 0,
-    "user": {
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "phone": "555-1234"
-    },
-    "suggestions": [],
-    "id": 10
   }
 ]
