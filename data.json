@@ -437,7 +437,15 @@
       "email": "alex.smith@example.com",
       "phone": "555-9876"
     },
-    "suggestions": [],
+    "suggestions": [
+      {
+        "likes": 5,
+        "isAnonymous": true,
+        "description": "I suggest exploring partnerships with major tech companies.",
+        "user": {},
+        "id": 1
+      }
+    ],
     "id": 13
   }
 ]
