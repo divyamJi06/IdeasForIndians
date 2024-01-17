@@ -1,4 +1,3 @@
-
 [
   {
     "title": "Innovative Tech Solutions",
@@ -21,6 +20,17 @@
         "description": "I suggest exploring partnerships with major tech companies.",
         "user": {},
         "id": 1
+      },
+      {
+        "likes": 0,
+        "isAnonymous": false,
+        "description": "I suggest exploring partnerships with major tech companies.",
+        "user": {
+          "name": "Bob Anderson",
+          "email": "bob.anderson@example.com",
+          "phone": "1234567890"
+        },
+        "id": 2
       }
     ],
     "id": 1
