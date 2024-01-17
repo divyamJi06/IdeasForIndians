@@ -15,15 +15,17 @@ new_content = 'This is the new content.'
 commit_message = 'Updated file with new '
 
 
-def createCommit( typeOfData, new_idea_data= None,new_suggestion_data = None,idea_id = None):
-
-
-    if typeOfData == "newidea":
-        edit_and_commit_file(github_username, repository_name, file_path, "ideas", github_token, new_idea_data, commit_message + "idea" , typeOfData )
-    else:
-        edit_and_commit_file(github_username, repository_name, file_path, "ideas", github_token, new_suggestion_data, commit_message + "suggestion." ,typeOfData, idea_id)
-
-
+def createCommit(typeOfData, new_idea_data=None, new_suggestion_data=None, idea_id=None):
+    try:
+        if typeOfData == "newidea":
+            edit_and_commit_file(github_username, repository_name, file_path, "ideas", github_token, new_idea_data,
+                                  commit_message + "idea", typeOfData)
+        else:
+            edit_and_commit_file(github_username, repository_name, file_path, "ideas", github_token, new_suggestion_data,
+                                  commit_message + "suggestion.", typeOfData, idea_id)
+    except Exception as e:
+        print(f"Error creating commit: {e}")
+        raise e
 
 
 new_idea_data = {
@@ -50,9 +52,9 @@ new_suggestion_data = {
             }}
 
 # For Ideas
-createCommit("newidea",new_idea_data = new_idea_data)
+# createCommit("newidea",new_idea_data = new_idea_data)
 
 
-idea_id = 1
+# idea_id = 6
 # For suggestions
 # createCommit(typeOfData= "newsuggestion", new_suggestion_data = new_suggestion_data, idea_id=idea_id)
