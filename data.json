@@ -260,24 +260,15 @@
       "email": "sandx@example.com",
       "phone": "878194"
     },
-    "suggestions": [],
-    "id": 8
-  },
-  {
-    "title": "AgriTech Product",
-    "description": "Agricultural products",
-    "tags": [
-      "Technology",
-      "Sustainability",
-      "Agriculture"
+    "suggestions": [
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "You can create a portal that could do some analytics",
+        "user": {},
+        "id": 1
+      }
     ],
-    "likes": 0,
-    "user": {
-      "name": "Divyam User",
-      "email": "div@example.com",
-      "phone": "878194"
-    },
-    "suggestions": [],
-    "id": 9
+    "id": 8
   }
 ]
