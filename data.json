@@ -262,5 +262,22 @@
     },
     "suggestions": [],
     "id": 8
+  },
+  {
+    "title": "AgriTech Product",
+    "description": "Agricultural products",
+    "tags": [
+      "Technology",
+      "Sustainability",
+      "Agriculture"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "Divyam User",
+      "email": "div@example.com",
+      "phone": "878194"
+    },
+    "suggestions": [],
+    "id": 9
   }
 ]
