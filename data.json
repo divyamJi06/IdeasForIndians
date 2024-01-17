@@ -260,7 +260,15 @@
       "email": "sandx@example.com",
       "phone": "878194"
     },
-    "suggestions": [],
+    "suggestions": [
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "You can create a portal that could do some analytics",
+        "user": {},
+        "id": 1
+      }
+    ],
     "id": 8
   },
   {
