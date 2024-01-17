@@ -299,7 +299,15 @@
       "email": "div@example.com",
       "phone": "878194"
     },
-    "suggestions": [],
+    "suggestions": [
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "Feel Free to connect",
+        "user": {},
+        "id": 1
+      }
+    ],
     "id": 9
   },
   {
