@@ -292,24 +292,15 @@
       "email": "div@example.com",
       "phone": "878194"
     },
-    "suggestions": [],
-    "id": 9
-  },
-  {
-    "title": "TechGadget XYZ",
-    "description": "Cutting-edge technology gadget",
-    "tags": [
-      "Technology",
-      "Innovation",
-      "Electronics"
+    "suggestions": [
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "Feel Free to connect",
+        "user": {},
+        "id": 1
+      }
     ],
-    "likes": 0,
-    "user": {
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "phone": "555-1234"
-    },
-    "suggestions": [],
-    "id": 10
+    "id": 9
   }
 ]
