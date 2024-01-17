@@ -380,6 +380,13 @@
           "phone": "555-1234"
         },
         "id": 1
+      },
+      {
+        "likes": 5,
+        "isAnonymous": true,
+        "description": "I suggest exploring partnerships with major tech companies.",
+        "user": {},
+        "id": 2
       }
     ],
     "id": 11
