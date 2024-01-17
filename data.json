@@ -301,5 +301,22 @@
     },
     "suggestions": [],
     "id": 9
+  },
+  {
+    "title": "TechGadget XYZ",
+    "description": "Cutting-edge technology gadget",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Electronics"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "phone": "555-1234"
+    },
+    "suggestions": [],
+    "id": 10
   }
 ]
