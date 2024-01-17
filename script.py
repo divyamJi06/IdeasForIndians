@@ -1,9 +1,10 @@
+import base64
 import requests
 import json
 
 def edit_and_commit_file(username, repository, file_path, branch, token, new_content, commit_message, typeOfData, idea_id=1):
     # Fetch the current content of the file
-    current_content = get_github_file_contents(username, repository, file_path, "master", token)
+    current_content = get_github_file_contents(username, repository, file_path, branch, token)
 
     # Load the current content as JSON
     try:
@@ -23,9 +24,8 @@ def edit_and_commit_file(username, repository, file_path, branch, token, new_con
     else:
         print("Creating new suggestion")
         modified_content = add_suggestion(current_data, idea_id, new_content)
-    print(modified_content)
+    modified_content = json.dumps(modified_content, indent=2)
 
-    modified_content = json.dumps(current_data, indent=2)
     # Create a new commit
     commit_sha = create_commit(username, repository, file_path, branch, token, modified_content, commit_message)
 
@@ -79,17 +79,22 @@ def add_suggestion(ideas, idea_id, new_suggestion):
 
 
 def get_github_file_contents(username, repository, file_path, branch, token):
-    url = f'https://raw.githubusercontent.com/{username}/{repository}/{branch}/{file_path}'
+    url = f'https://api.github.com/repos/{username}/{repository}/contents/{file_path}?ref={branch}'
     
     try:
         headers = {
-            'Authorization': f'token {token}'
+            'Authorization': f'token {token}',
+            'Accept': 'application/vnd.github.v3+json'
         }
 
         response = requests.get(url, headers=headers)
         response.raise_for_status()  # Check for errors
-        print("Fetched current data from branch")
-        return response.text
+
+        # Decode content from base64 and load JSON
+        decoded_content = base64.b64decode(response.json()['content']).decode('utf-8')
+        print(f"Fetched the data from branch {branch}")
+
+        return decoded_content
     except requests.exceptions.RequestException as e:
         print(f"Error fetching file from GitHub: {e}")
         return None
