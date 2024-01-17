@@ -271,12 +271,8 @@
       {
         "likes": 0,
         "isAnonymous": true,
-        "description": "Lots can be added into the project",
-        "user": {
-          "name": "Anonymous User",
-          "email": "anonymous@example.com",
-          "phone": "555-5678"
-        },
+        "description": "Feel Free to connect",
+        "user": {},
         "id": 2
       }
     ],
