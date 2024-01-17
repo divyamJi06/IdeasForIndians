@@ -5,7 +5,9 @@ from index import createCommit
 app = Flask(__name__)
 
 # Sample data structure to store ideas and suggestions
-ideas_data = []
+@app.route("/")
+def home():
+    return "Working fine", 200
 
 @app.route('/new_idea', methods=['POST'])
 def new_idea():
@@ -15,7 +17,7 @@ def new_idea():
         print(data)
 
         # Add new idea to the ideas_data list
-        ideas_data.append(data)
+        # ideas_data.append(data)
         createCommit("newidea",new_idea_data = data)
 
         return jsonify({"message": "New idea added successfully"}), 201
@@ -47,14 +49,14 @@ def like_item(type_of_data, item_id):
     try:
         # Find the item (idea or suggestion) with the specified ID
         item = None
-        for idea in ideas_data:
-            if idea['id'] == item_id:
-                item = idea
-                break
-            for suggestion in idea['suggestions']:
-                if suggestion['id'] == item_id:
-                    item = suggestion
-                    break
+        # for idea in ideas_data:
+        #     if idea['id'] == item_id:
+        #         item = idea
+        #         break
+        #     for suggestion in idea['suggestions']:
+        #         if suggestion['id'] == item_id:
+        #             item = suggestion
+        #             break
 
         if item:
             # Increase the 'likes' count for the item
