@@ -257,6 +257,13 @@
         "description": "Feel Free to connect",
         "user": {},
         "id": 2
+      },
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "You can create a portal that could do some analytics",
+        "user": {},
+        "id": 3
       }
     ],
     "id": 7
