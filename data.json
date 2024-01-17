@@ -267,6 +267,17 @@
         "description": "Lots can be added into the project",
         "user": {},
         "id": 1
+      },
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "Lots can be added into the project",
+        "user": {
+          "name": "Anonymous User",
+          "email": "anonymous@example.com",
+          "phone": "555-5678"
+        },
+        "id": 2
       }
     ],
     "id": 8
