@@ -31,6 +31,13 @@
           "phone": "1234567890"
         },
         "id": 2
+      },
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "I love the idea! Consider integrating wearables for better health tracking.",
+        "user": {},
+        "id": 3
       }
     ],
     "id": 1
