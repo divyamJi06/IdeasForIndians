@@ -440,6 +440,13 @@
         "description": "I suggest exploring partnerships with major tech companies.",
         "user": {},
         "id": 5
+      },
+      {
+        "likes": 5,
+        "isAnonymous": true,
+        "description": "I suggest exploring partnerships with major tech companies.",
+        "user": {},
+        "id": 6
       }
     ],
     "id": 12
