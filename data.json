@@ -1,1 +1,28 @@
 
+[
+  {
+    "title": "Innovative Tech Solutions",
+    "description": "Revolutionizing the way we interact with technology.",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Electronics"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "Alex Smith",
+      "email": "alex.smith@example.com",
+      "phone": "555-9876"
+    },
+    "suggestions": [
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "I suggest exploring partnerships with major tech companies.",
+        "user": {},
+        "id": 1
+      }
+    ],
+    "id": 1
+  }
+]
