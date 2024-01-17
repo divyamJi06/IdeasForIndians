@@ -243,7 +243,15 @@
       "email": "demouser@example.com",
       "phone": "761346933"
     },
-    "suggestions": [],
+    "suggestions": [
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "Feel Free to connect",
+        "user": {},
+        "id": 1
+      }
+    ],
     "id": 7
   },
   {
@@ -299,15 +307,7 @@
       "email": "div@example.com",
       "phone": "878194"
     },
-    "suggestions": [
-      {
-        "likes": 0,
-        "isAnonymous": true,
-        "description": "Feel Free to connect",
-        "user": {},
-        "id": 1
-      }
-    ],
+    "suggestions": [],
     "id": 9
   },
   {
