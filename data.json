@@ -73,7 +73,15 @@
       "phone": "73649813"
     },
     "likes": 0,
-    "suggestions": [],
+    "suggestions": [
+      {
+        "description": "Nicee",
+        "likes": 0,
+        "isAnonymous": true,
+        "user": {},
+        "id": 1
+      }
+    ],
     "id": 2
   },
   {
