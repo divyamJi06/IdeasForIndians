@@ -38,8 +38,31 @@
         "description": "I love the idea! Consider integrating wearables for better health tracking.",
         "user": {},
         "id": 3
+      },
+      {
+        "description": "New suggestion",
+        "likes": 0,
+        "isAnonymous": true,
+        "user": {},
+        "id": 4
       }
     ],
     "id": 1
+  },
+  {
+    "title": "Real Estate App",
+    "description": "Better Efficiecy for Builders and brokers",
+    "tags": [
+      "Productivity",
+      "Technology"
+    ],
+    "user": {
+      "name": "Sanidhya",
+      "email": "san@gmail.com",
+      "phone": "73649813"
+    },
+    "likes": 0,
+    "suggestions": [],
+    "id": 2
   }
 ]
