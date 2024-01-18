@@ -1,1 +1,68 @@
-[]
+[
+  {
+    "title": "Innovative Tech Solutions",
+    "description": "Revolutionizing the way we interact with technology.",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Electronics"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "Alex Smith",
+      "email": "alex.smith@example.com",
+      "phone": "555-9876"
+    },
+    "suggestions": [
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "I suggest exploring partnerships with major tech companies.",
+        "user": {},
+        "id": 1
+      },
+      {
+        "likes": 0,
+        "isAnonymous": false,
+        "description": "I suggest exploring partnerships with major tech companies.",
+        "user": {
+          "name": "Bob Anderson",
+          "email": "bob.anderson@example.com",
+          "phone": "1234567890"
+        },
+        "id": 2
+      },
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "I love the idea! Consider integrating wearables for better health tracking.",
+        "user": {},
+        "id": 3
+      },
+      {
+        "description": "New suggestion",
+        "likes": 0,
+        "isAnonymous": true,
+        "user": {},
+        "id": 4
+      }
+    ],
+    "id": 1
+  },
+  {
+    "title": "Real Estate App",
+    "description": "Better Efficiecy for Builders and brokers",
+    "tags": [
+      "Productivity",
+      "Technology"
+    ],
+    "user": {
+      "name": "Sanidhya",
+      "email": "san@gmail.com",
+      "phone": "73649813"
+    },
+    "likes": 0,
+    "suggestions": [],
+    "id": 2
+  }
+]
