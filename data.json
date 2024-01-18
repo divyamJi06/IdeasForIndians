@@ -38,6 +38,13 @@
         "description": "I love the idea! Consider integrating wearables for better health tracking.",
         "user": {},
         "id": 3
+      },
+      {
+        "description": "New suggestion",
+        "likes": 0,
+        "isAnonymous": true,
+        "user": {},
+        "id": 4
       }
     ],
     "id": 1
