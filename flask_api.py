@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, request, jsonify
 
 from index import createCommit
 
@@ -7,7 +7,11 @@ app = Flask(__name__)
 # Sample data structure to store ideas and suggestions
 @app.route("/")
 def home():
-    return "Working fine", 200
+    return render_template('home.html')
+
+@app.route("/detail.html")
+def detail():
+    return render_template('detail.html')
 
 @app.route('/new_idea', methods=['POST'])
 def new_idea():
