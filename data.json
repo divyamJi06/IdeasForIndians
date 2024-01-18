@@ -45,6 +45,17 @@
         "isAnonymous": true,
         "user": {},
         "id": 4
+      },
+      {
+        "description": "Better suggestion",
+        "likes": 0,
+        "isAnonymous": false,
+        "user": {
+          "name": "Goodname",
+          "email": "gmail@mia.cons",
+          "phone": "318946"
+        },
+        "id": 5
       }
     ],
     "id": 1
@@ -64,5 +75,22 @@
     "likes": 0,
     "suggestions": [],
     "id": 2
+  },
+  {
+    "title": "Eco-Friendly Transportation App",
+    "description": "Create a mobile application that promotes and facilitates eco-friendly transportation options. The app could include features such as real-time tracking of public transportation, bike-sharing locations, electric vehicle charging stations, and carpooling opportunities. Users can plan their routes based on the most sustainable and environmentally friendly options available. Additionally, the app could provide information on the carbon footprint of different transportation choices and incentivize users to choose greener alternatives through rewards or challenges. This idea aims to contribute to a more sustainable and eco-conscious approach to transportation in urban areas.",
+    "tags": [
+      "Sustainibitly",
+      "Technology",
+      "Green"
+    ],
+    "user": {
+      "name": "CHATGPT",
+      "email": "chatgpt@openai.com",
+      "phone": "391461"
+    },
+    "likes": 0,
+    "suggestions": [],
+    "id": 3
   }
 ]
