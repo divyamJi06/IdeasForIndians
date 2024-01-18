@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .list-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .list-item {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            width: 200px;
+            cursor: pointer;
+            background-color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .list-item:hover {
+            background-color: #e0e0e0;
+        }
+
+        .detail-container {
+            display: none;
+            padding: 20px;
+        }
+
+        .suggestion-item {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            padding: 15px;
+            background-color: #fff;
+        }
+
+        #addIdeaModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+        }
+
+        #addIdeaModal label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        #addIdeaModal input,
+        #addIdeaModal select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        #addIdeaModal button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="list-container" id="listContainer"></div>
+
+    <!-- Add Idea Button -->
+    <button onclick="openAddIdeaModal()">Add Idea</button>
+
+    <!-- Add Idea Modal -->
+    <div id="addIdeaModal">
+        <span onclick="closeAddIdeaModal()" style="cursor: pointer; float: right;">&times;</span>
+        <h2>Add New Idea</h2>
+        <form id="addIdeaForm">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <label for="tags">Tags:</label>
+            <input type="text" id="tags" name="tags" required>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone">
+
+            <button type="button" onclick="submitIdeaForm(event)">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Your existing JavaScript code remains the same
+
+        function openAddIdeaModal() {
+            document.getElementById('addIdeaModal').style.display = 'block';
+        }
+
+        function closeAddIdeaModal() {
+            document.getElementById('addIdeaModal').style.display = 'none';
+        }
+
+
+        function submitIdeaForm(event) {
+            event.preventDefault();  // Prevents the default form submission behavior
+
+            const addIdeaForm = document.getElementById('addIdeaForm');
+            const ideaData = {
+                title: addIdeaForm.elements.title.value,
+                description: addIdeaForm.elements.description.value,
+                tags: addIdeaForm.elements.tags.value.split(',').map(tag => tag.trim()),
+                user: {
+                    name: addIdeaForm.elements.name.value,
+                    email: addIdeaForm.elements.email.value,
+                    phone: addIdeaForm.elements.phone.value || null
+                },
+                likes: 0,
+                suggestions: []
+            };
+
+            // Send a POST request to your API
+            fetch('/new_idea', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // You may need to include additional headers here, such as authorization headers
+                },
+                body: JSON.stringify(ideaData)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Data added successfully
+                        console.log('Idea added successfully!');
+                        showSuccessMessage();
+                    } else {
+                        // Error in adding data
+                        console.error('Error adding idea:', response.statusText);
+                        showErrorMessage();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending POST request:', error);
+                    showErrorMessage();
+                })
+                .finally(() => {
+                    // Close the modal
+                    closeAddIdeaModal();
+                });
+        }
+
+        function showSuccessMessage() {
+            // Replace this with your desired way of displaying a success message to the user
+            alert('Idea added successfully!');
+        }
+
+        function showErrorMessage() {
+            // Replace this with your desired way of displaying an error message to the user
+            alert('Failed to add idea. Please try again.');
+        }
+    </script>
+    <script>
+        // Fetch data from the JSON file
+        fetch('https://raw.githubusercontent.com/divyamJi06/IdeasForIndians/master/data.json')
+        .then(response => response.json())
+        .then(data => displayList(data))
+        .catch(error => console.error('Error fetching data:', error));
+    
+
+        // Function to display the list view
+        function displayList(data) {
+            const listContainer = document.getElementById('listContainer');
+
+            data.forEach(item => {
+                const listItem = document.createElement('div');
+                listItem.classList.add('list-item');
+                listItem.innerHTML = `
+                <h3>${item.title}</h3>
+                <p>${item.description}</p>
+                <p>Likes: ${item.likes}</p>
+                <p>Authored by: ${item.user.name}</p>
+                <p>Suggestions: ${item.suggestions.length}</p>
+            `;
+                listItem.addEventListener('click', () => showDetail(item));
+                listContainer.appendChild(listItem);
+            });
+        }
+
+        // Function to show the detail view in a new page
+        function showDetail(item) {
+            // Serialize the item object to a JSON string
+            const itemJSON = JSON.stringify(item);
+
+            // Create a new page and pass the serialized item to it
+            const newPage = window.open('detail.html', '_blank');
+            newPage.onload = function () {
+                // Inject the serialized item into the new page
+                newPage.postMessage(itemJSON, '*');
+            };
+        }
+    </script>
+
+</body>
+
+</html>

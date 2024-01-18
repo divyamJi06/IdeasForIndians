@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .idea-container {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            width: 200px;
+            background-color: #fff;
+        }
+
+        .detail-container {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            background-color: #fff;
+        }
+
+        .suggestion-item {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            padding: 15px;
+            background-color: #fff;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <div class="idea-container" id="ideaContainer"></div>
+    <div class="detail-container" id="detailContainer"></div>
+    <button onclick="openModal()">Add Suggestion</button>
+
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <span onclick="closeModal()" style="cursor: pointer; float: right;">&times;</span>
+            <h2>Add New Suggestion</h2>
+            <form id="suggestionForm">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <label for="anonymous">Anonymous:</label>
+                <select id="anonymous" name="anonymous" onchange="toggleFields()">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <div id="additionalFields" style="display: none;">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <button type="button" onclick="submitForm(event)">Submit</button>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('myModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        function toggleFields() {
+            const anonymousSelect = document.getElementById('anonymous');
+            const additionalFields = document.getElementById('additionalFields');
+
+            additionalFields.style.display = (anonymousSelect.value === 'no') ? 'block' : 'none';
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            const suggestionForm = document.getElementById('suggestionForm');
+            const description = suggestionForm.elements.description.value;
+            const anonymous = suggestionForm.elements.anonymous.value;
+            const name = suggestionForm.elements.name ? suggestionForm.elements.name.value : null;
+            const email = suggestionForm.elements.email ? suggestionForm.elements.email.value : null;
+            const phone = suggestionForm.elements.phone ? suggestionForm.elements.phone.value : null;
+
+            // Do something with the form data (e.g., send it to the server)
+
+            suggestiondata = {
+                description: description,
+                likes: 0,
+                isAnonymous: suggestionForm.elements.anonymous.value === 'yes',
+                user: suggestionForm.elements.anonymous.value === 'yes' ? {} : {
+                    name: name,
+                    email: email,
+                    phone: phone
+                }
+            }
+            console.log('Data:', suggestiondata);
+
+            fetch( `/new_suggestion/${id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    // You may need to include additional headers here, such as authorization headers
+                },
+                body: JSON.stringify(suggestiondata)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Data added successfully
+                        console.log('Suggestion added successfully!');
+                        showSuccessMessage();
+                    } else {
+                        // Error in adding data
+                        console.error('Error adding Suggestion:', response.statusText);
+                        showErrorMessage();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending POST request:', error);
+                    showErrorMessage();
+                })
+                .finally(() => {
+                    // Close the modal
+                    // closeAddIdeaModal();
+                    closeModal();
+                });
+            // Close the modal
+        }
+
+        id= "";
+        function showSuccessMessage() {
+            // Replace this with your desired way of displaying a success message to the user
+            alert('Suggestion added successfully!');
+        }
+
+        function showErrorMessage() {
+            // Replace this with your desired way of displaying an error message to the user
+            alert('Failed to add Suggestion. Please try again.');
+        }
+
+        // Listen for the postMessage from the parent window
+        window.addEventListener('message', event => {
+            const itemJSON = event.data;
+            const item = JSON.parse(itemJSON);
+            displayDetail(item);
+        });
+
+        // Function to display the detail view
+        function displayDetail(item) {
+
+            const ideaItem = document.getElementById('ideaContainer');
+            ideaItem.classList.add('list-item');
+            id = item.id;
+            ideaItem.innerHTML = `
+                <h3>${item.title}</h3>
+                <p>${item.description}</p>
+                <p>Likes: ${item.likes}</p>
+                <p>Authored by: ${item.user.name}</p>
+                <p>Suggestions: ${item.suggestions.length}</p>
+            `;
+
+
+            const detailContainer = document.getElementById('detailContainer');
+            detailContainer.innerHTML = '';
+
+            item.suggestions.forEach(suggestion => {
+                const suggestionItem = document.createElement('div');
+                suggestionItem.classList.add('suggestion-item');
+                suggestionItem.innerHTML = `
+                <p><strong>Suggestion ID:</strong> ${suggestion.id}</p>
+                <p><strong>Likes:</strong> ${suggestion.likes}</p>
+                <p><strong>Anonymous:</strong> ${suggestion.isAnonymous ? 'Yes' : 'No'}</p>
+                <p><strong>Description:</strong> ${suggestion.description}</p>
+                <p><strong>Author:</strong> ${suggestion.user.name || 'Anonymous'}</p>
+            `;
+                detailContainer.appendChild(suggestionItem);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

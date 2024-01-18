@@ -1,37 +1,119 @@
 [
-    {
-        "id": 1,
-        "title": "Sample Idea",
-        "description": "This is a sample idea.",
-        "tags": [
-            "Finance",
-            "ML"
-        ],
-        "likes": 2,
+  {
+    "title": "Innovative Tech Solutions",
+    "description": "Revolutionizing the way we interact with technology.",
+    "tags": [
+      "Technology",
+      "Innovation",
+      "Electronics"
+    ],
+    "likes": 0,
+    "user": {
+      "name": "Alex Smith",
+      "email": "alex.smith@example.com",
+      "phone": "555-9876"
+    },
+    "suggestions": [
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "I suggest exploring partnerships with major tech companies.",
+        "user": {},
+        "id": 1
+      },
+      {
+        "likes": 0,
+        "isAnonymous": false,
+        "description": "I suggest exploring partnerships with major tech companies.",
         "user": {
-            "name": "John Doe",
-            "email": "johndoe.11!gmail.com",
-            "phone": "1234567890"
+          "name": "Bob Anderson",
+          "email": "bob.anderson@example.com",
+          "phone": "1234567890"
         },
-        "suggestions": [
-            {
-                "id": 1,
-                "likes": 0,
-                "isAnonymous": false,
-                "description": "Great idea! I suggest adding XYZ.",
-                "user": {
-                    "name": "Jane Smith",
-                    "email": "janeSmith.1112!gmail.com",
-                    "phone": null
-                }
-            },
-            {
-                "id": 2,
-                "likes": 16,
-                "isAnonymous": true,
-                "description": "Great idea! A lot of funds could be generated.",
-                "user": {}
-            }
-        ]
-    }
+        "id": 2
+      },
+      {
+        "likes": 0,
+        "isAnonymous": true,
+        "description": "I love the idea! Consider integrating wearables for better health tracking.",
+        "user": {},
+        "id": 3
+      },
+      {
+        "description": "New suggestion",
+        "likes": 0,
+        "isAnonymous": true,
+        "user": {},
+        "id": 4
+      },
+      {
+        "description": "Better suggestion",
+        "likes": 0,
+        "isAnonymous": false,
+        "user": {
+          "name": "Goodname",
+          "email": "gmail@mia.cons",
+          "phone": "318946"
+        },
+        "id": 5
+      }
+    ],
+    "id": 1
+  },
+  {
+    "title": "Real Estate App",
+    "description": "Better Efficiecy for Builders and brokers",
+    "tags": [
+      "Productivity",
+      "Technology"
+    ],
+    "user": {
+      "name": "Sanidhya",
+      "email": "san@gmail.com",
+      "phone": "73649813"
+    },
+    "likes": 0,
+    "suggestions": [
+      {
+        "description": "Nicee",
+        "likes": 0,
+        "isAnonymous": true,
+        "user": {},
+        "id": 1
+      }
+    ],
+    "id": 2
+  },
+  {
+    "title": "Eco-Friendly Transportation App",
+    "description": "Create a mobile application that promotes and facilitates eco-friendly transportation options. The app could include features such as real-time tracking of public transportation, bike-sharing locations, electric vehicle charging stations, and carpooling opportunities. Users can plan their routes based on the most sustainable and environmentally friendly options available. Additionally, the app could provide information on the carbon footprint of different transportation choices and incentivize users to choose greener alternatives through rewards or challenges. This idea aims to contribute to a more sustainable and eco-conscious approach to transportation in urban areas.",
+    "tags": [
+      "Sustainibitly",
+      "Technology",
+      "Green"
+    ],
+    "user": {
+      "name": "CHATGPT",
+      "email": "chatgpt@openai.com",
+      "phone": "391461"
+    },
+    "likes": 0,
+    "suggestions": [],
+    "id": 3
+  },
+  {
+    "title": "Dg",
+    "description": "Jhfbjj",
+    "tags": [
+      "Lgbjj"
+    ],
+    "user": {
+      "name": "SANIDHYA JAIN",
+      "email": "sanidhyajain45@gmail.com",
+      "phone": "07000987066"
+    },
+    "likes": 0,
+    "suggestions": [],
+    "id": 4
+  }
 ]
