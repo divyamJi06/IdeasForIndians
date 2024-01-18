@@ -45,6 +45,17 @@
         "isAnonymous": true,
         "user": {},
         "id": 4
+      },
+      {
+        "description": "Better suggestion",
+        "likes": 0,
+        "isAnonymous": false,
+        "user": {
+          "name": "Goodname",
+          "email": "gmail@mia.cons",
+          "phone": "318946"
+        },
+        "id": 5
       }
     ],
     "id": 1
