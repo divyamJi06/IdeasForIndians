@@ -16,6 +16,154 @@
         .idea-container {
             border: 1px solid #ccc;
             border-radius: 8px;
+            margin: 10px auto; /* Center the idea container */
+            padding: 15px;
+            width: 400px; /* Increased width for the main idea */
+            background-color: #fff;
+        }
+
+        .detail-container {
+            display: flex; /* Use flex to arrange suggestions horizontally */
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start; /* Align items to the start */
+            margin: 10px;
+            padding: 15px;
+            background-color: #fff;
+        }
+
+        .suggestion-item {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            width: 200px;
+            background-color: #fff;
+        }
+
+        .add-suggestion-button {
+    display: block;
+    margin: 10px auto; /* Center the button */
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    width: 400px; /* Increased width for the modal */
+}
+
+        .modal label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .modal input,
+        .modal textarea,
+        .modal select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+        }
+
+        .modal button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Rest of your styles remain unchanged */
+    </style>
+</head>
+
+<body>
+    <div class="idea-container" id="ideaContainer"></div>
+    <div class="detail-container" id="detailContainer"></div>
+
+    <!-- Add Suggestion Button -->
+    <button class="add-suggestion-button" onclick="openSuggestionModal()">Add Suggestion</button>
+
+    <!-- Add Suggestion Modal -->
+    <div class="modal" id="suggestionModal">
+        <span onclick="closeSuggestionModal()" style="cursor: pointer; float: right;">&times;</span>
+        <h2>Add New Suggestion</h2>
+        <form id="suggestionForm">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <label for="anonymous">Anonymous:</label>
+            <select id="anonymous" name="anonymous">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <div id="additionalFields" style="display: none;">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+
+            <button type="button" onclick="submitSuggestionForm(event)">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function openSuggestionModal() {
+            document.getElementById('suggestionModal').style.display = 'flex';
+        }
+
+        function closeSuggestionModal() {
+            document.getElementById('suggestionModal').style.display = 'none';
+        }
+
+        // Rest of your script remains unchanged
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Page</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .idea-container {
+            border: 1px solid #ccc;
+            border-radius: 8px;
             margin: 10px;
             padding: 15px;
             width: 200px;
@@ -200,4 +348,4 @@
 
 </body>
 
-</html>
+</html> -->
