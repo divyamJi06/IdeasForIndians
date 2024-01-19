@@ -80,6 +80,17 @@
         "isAnonymous": true,
         "user": {},
         "id": 1
+      },
+      {
+        "description": "Great IDea, brokers will love it",
+        "likes": 0,
+        "isAnonymous": false,
+        "user": {
+          "name": "Aman",
+          "email": "aman@gmail.com",
+          "phone": "964343415"
+        },
+        "id": 2
       }
     ],
     "id": 2
@@ -98,7 +109,15 @@
       "phone": "391461"
     },
     "likes": 0,
-    "suggestions": [],
+    "suggestions": [
+      {
+        "description": "Nice idea , lets see where it can go",
+        "likes": 0,
+        "isAnonymous": true,
+        "user": {},
+        "id": 1
+      }
+    ],
     "id": 3
   },
   {
