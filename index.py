@@ -1,3 +1,6 @@
+import base64
+import json
+import requests
 from script import edit_and_commit_file
 from dotenv import load_dotenv
 import os
@@ -26,6 +29,30 @@ def createCommit(typeOfData, new_idea_data=None, new_suggestion_data=None, idea_
     except Exception as e:
         print(f"Error creating commit: {e}")
         raise e
+
+
+def get_data_from_github(branch="master"):
+    try:
+        url = f'https://api.github.com/repos/{github_username}/{repository_name}/contents/{file_path}?ref={branch}'
+
+        headers = {
+            'Authorization': f'token {github_token}',
+            'Accept': 'application/vnd.github.v3+json'
+        }
+
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()  # Check for errors
+
+        # Decode content from base64 and load JSON
+        decoded_content = base64.b64decode(response.json()['content']).decode('utf-8')
+        print(f"Fetched the data from branch {branch}")
+
+        current_data = json.loads(decoded_content)
+        return current_data
+
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching file from GitHub: {e}")
+        raise
 
 
 new_idea_data = {

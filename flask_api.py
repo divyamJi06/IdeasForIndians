@@ -1,17 +1,63 @@
 from flask import Flask, render_template, request, jsonify
-
-from index import createCommit
+from index import createCommit, get_data_from_github
 
 app = Flask(__name__)
 
-# Sample data structure to store ideas and suggestions
-@app.route("/")
-def home():
-    return render_template('home.html')
 
-@app.route("/detail.html")
-def detail():
-    return render_template('detail.html')
+@app.route("/", methods=["GET"])
+def home():
+    try:
+        allData = get_data_from_github(branch="master")
+        # print(allData)
+
+        return render_template('home.html', allData=allData)
+
+    except Exception as e:
+        # Handle exceptions here, e.g., log the error
+        print(f"Error in home route: {str(e)}")
+        return render_template('error.html', error_message="An error occurred while fetching data.")
+
+
+@app.route("/detail/<int:idea_id>", methods=["GET"])
+def detail(idea_id):
+    try:
+        allData = get_data_from_github(branch="master")
+        filtered_data = next((i for i in allData if i['id'] == idea_id), None)
+        print(filtered_data)
+
+        if not filtered_data:
+            data = {
+                "isPresent": False,
+                "data": filtered_data
+            }
+            return render_template("detail.html", data=data)
+
+        data = {
+            "isPresent": True,
+            "data": filtered_data
+        }
+        return render_template('detail.html', data=data)
+
+    except Exception as e:
+        # Handle exceptions here, e.g., log the error
+        print(f"Error in detail route: {str(e)}")
+        return render_template('error.html', error_message="An error occurred while processing the request.")
+
+
+# Add an error route for displaying errors
+@app.route("/error", methods=["GET"])
+def error():
+    return render_template('error.html', error_message="An unexpected error occurred.")
+
+
+@app.route('/<path:invalid_path>')
+def handle_invalid_path(invalid_path):
+    # Log or handle the unexpected URL as needed
+    print(f"Unexpected URL: /{invalid_path}")
+
+    # Render the error.html template
+    return render_template('error.html', error_message="Unexpected URL. Please go back to the home page.")
+
 
 @app.route('/new_idea', methods=['POST'])
 def new_idea():
@@ -22,12 +68,13 @@ def new_idea():
 
         # Add new idea to the ideas_data list
         # ideas_data.append(data)
-        createCommit("newidea",new_idea_data = data)
+        createCommit("newidea", new_idea_data=data)
 
         return jsonify({"message": "New idea added successfully"}), 201
 
     except Exception as e:
         return jsonify({"error": str(e)}), 400
+
 
 @app.route('/new_suggestion/<int:idea_id>', methods=['POST'])
 def new_suggestion(idea_id):
@@ -35,8 +82,7 @@ def new_suggestion(idea_id):
         data = request.json
         print(data)
         print(idea_id)
-        createCommit(typeOfData= "newsuggestion", new_suggestion_data = data, idea_id=idea_id)
-
+        createCommit(typeOfData="newsuggestion", new_suggestion_data=data, idea_id=idea_id)
 
         if idea_id:
             # Add new suggestion to the idea's suggestions list
@@ -47,6 +93,7 @@ def new_suggestion(idea_id):
 
     except Exception as e:
         return jsonify({"error": str(e)}), 400
+
 
 @app.route('/like/<string:type_of_data>/<int:item_id>', methods=['PATCH'])
 def like_item(type_of_data, item_id):
@@ -72,6 +119,7 @@ def like_item(type_of_data, item_id):
 
     except Exception as e:
         return jsonify({"error": str(e)}), 400
+
 
 if __name__ == '__main__':
     app.run(debug=True)
