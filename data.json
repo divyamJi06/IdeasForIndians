@@ -116,6 +116,17 @@
         "isAnonymous": true,
         "user": {},
         "id": 1
+      },
+      {
+        "description": "New suggestion",
+        "likes": 0,
+        "isAnonymous": false,
+        "user": {
+          "name": "John",
+          "email": "csjain2008@gmail.com",
+          "phone": "79582454"
+        },
+        "id": 2
       }
     ],
     "id": 3
