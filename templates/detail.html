@@ -42,6 +42,7 @@
 </head>
 
 <body>
+    {% if data.isPresent %}
     <div class="idea-container" id="ideaContainer"></div>
     <div class="detail-container" id="detailContainer"></div>
     <button onclick="openModal()">Add Suggestion</button>
@@ -76,7 +77,11 @@
             </form>
         </div>
     </div>
+    {% else %}
+        <p>No data found for this idea ID</p>
 
+        <a href="/">Home Page</a>
+    {% endif %}
     <script>
         function openModal() {
             document.getElementById('myModal').style.display = 'flex';
@@ -158,12 +163,10 @@
             alert('Failed to add Suggestion. Please try again.');
         }
 
-        // Listen for the postMessage from the parent window
-        window.addEventListener('message', event => {
-            const itemJSON = event.data;
-            const item = JSON.parse(itemJSON);
-            displayDetail(item);
-        });
+        // Fetch data from the JSON file
+        const dataFromFlask = JSON.parse('{{ data|tojson|safe }}');
+        if(dataFromFlask['isPresent'])
+        displayDetail(dataFromFlask['data']);
 
         // Function to display the detail view
         function displayDetail(item) {

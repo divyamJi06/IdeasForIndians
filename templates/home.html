@@ -189,11 +189,8 @@
     </script>
     <script>
         // Fetch data from the JSON file
-        fetch('https://raw.githubusercontent.com/divyamJi06/IdeasForIndians/master/data.json')
-        .then(response => response.json())
-        .then(data => displayList(data))
-        .catch(error => console.error('Error fetching data:', error));
-    
+        const dataFromFlask = JSON.parse('{{ allData|tojson|safe }}');
+        displayList(dataFromFlask);
 
         // Function to display the list view
         function displayList(data) {
@@ -217,14 +214,8 @@
         // Function to show the detail view in a new page
         function showDetail(item) {
             // Serialize the item object to a JSON string
-            const itemJSON = JSON.stringify(item);
-
             // Create a new page and pass the serialized item to it
-            const newPage = window.open('detail.html', '_blank');
-            newPage.onload = function () {
-                // Inject the serialized item into the new page
-                newPage.postMessage(itemJSON, '*');
-            };
+            const newPage = window.open(`detail/${item.id}`,);
         }
     </script>
 
