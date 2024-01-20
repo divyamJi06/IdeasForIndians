@@ -134,6 +134,17 @@
           "phone": "79582454"
         },
         "id": 2
+      },
+      {
+        "description": "",
+        "likes": 0,
+        "isAnonymous": false,
+        "user": {
+          "name": "",
+          "email": "",
+          "phone": ""
+        },
+        "id": 3
       }
     ],
     "id": 3
