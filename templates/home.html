@@ -296,11 +296,12 @@ button:hover {
             const listContainer = document.getElementById('listContainer');
 
             data.forEach(item => {
+                const truncatedDescription = item.description.length > 200 ? `${item.description.substring(0, 200)}...` : item.description;
                 const listItem = document.createElement('div');
                 listItem.classList.add('list-item');
                 listItem.innerHTML = `
                 <h3>${item.title}</h3>
-                <p>${item.description}</p>
+                <p>${truncatedDescription}</p>
                 <p>Likes: ${item.likes}</p>
                 <p>Authored by: ${item.user.name}</p>
                 <p>Suggestions: ${item.suggestions.length}</p>
