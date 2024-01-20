@@ -193,7 +193,7 @@ button:hover {
     <div id="addIdeaModal">
         <span onclick="closeAddIdeaModal()" style="cursor: pointer; float: right;">&times;</span>
         <h2>Add New Idea</h2>
-        <form id="addIdeaForm">
+        <form id="addIdeaForm" onsubmit="return submitIdeaForm(event);">
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required>
 
@@ -212,7 +212,8 @@ button:hover {
             <label for="phone">Phone:</label>
             <input type="tel" id="phone" name="phone">
 
-            <button type="button" onclick="submitIdeaForm(event)">Submit</button>
+            <!-- <button type="button" >Submit</button> -->
+            <input type="submit" value="Submit" />
         </form>
     </div>
 
@@ -244,7 +245,7 @@ button:hover {
                 likes: 0,
                 suggestions: []
             };
-
+            console.log(ideaData)
             // Send a POST request to your API
             fetch('/new_idea', {
                 method: 'POST',

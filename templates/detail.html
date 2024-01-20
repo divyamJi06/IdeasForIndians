@@ -1,159 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-
-        .idea-container {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            margin: 10px auto; /* Center the idea container */
-            padding: 15px;
-            width: 400px; /* Increased width for the main idea */
-            background-color: #fff;
-        }
-
-        .detail-container {
-            display: flex; /* Use flex to arrange suggestions horizontally */
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: flex-start; /* Align items to the start */
-            margin: 10px;
-            padding: 15px;
-            background-color: #fff;
-        }
-
-        .suggestion-item {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            margin: 10px;
-            padding: 15px;
-            width: 200px;
-            background-color: #fff;
-        }
-
-        .add-suggestion-button {
-    display: block;
-    margin: 10px auto; /* Center the button */
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-    width: 400px; /* Increased width for the modal */
-}
-
-        .modal label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .modal input,
-        .modal textarea,
-        .modal select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-        }
-
-        .modal button {
-            background-color: #4caf50;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        /* Rest of your styles remain unchanged */
-    </style>
-</head>
-
-<body>
-    <div class="idea-container" id="ideaContainer"></div>
-    <div class="detail-container" id="detailContainer"></div>
-
-    <button class="add-suggestion-button" onclick="openSuggestionModal()">Add Suggestion</button>
-
-    <div class="modal" id="suggestionModal">
-        <span onclick="closeSuggestionModal()" style="cursor: pointer; float: right;">&times;</span>
-        <h2>Add New Suggestion</h2>
-        <form id="suggestionForm">
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" required></textarea>
-
-            <label for="anonymous">Anonymous:</label>
-            <select id="anonymous" name="anonymous">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
-
-            <div id="additionalFields" style="display: none;">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone">
-            </div>
-
-            <button type="button" onclick="submitSuggestionForm(event)">Submit</button>
-        </form>
-    </div>
-
-    <script>
-        function openSuggestionModal() {
-            document.getElementById('suggestionModal').style.display = 'flex';
-        }
-
-        function closeSuggestionModal() {
-            document.getElementById('suggestionModal').style.display = 'none';
-        }
-
-        // Rest of your script remains unchanged
-    </script>
-
-</body>
-
-</html>
-
- -->
-
-
-
-
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -173,16 +17,18 @@
 
         .idea-container {
             border: 1px solid #ccc;
-            border-radius: 8px;
-            margin: 10px;
+            border-radius: 8px; 
+            margin: 20px; /*Center the idea container*/
             padding: 15px;
-            width: 200px;
+            width: 96%; /*Take full width for the main idea*/
             background-color: #fff;
         }
 
         .detail-container {
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            display: flex; /* Use flex to arrange suggestions horizontally */
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: flex-start; /* Align items to the start */
             margin: 10px;
             padding: 15px;
             background-color: #fff;
@@ -191,25 +37,97 @@
         .suggestion-item {
             border: 1px solid #ccc;
             border-radius: 8px;
-            margin-bottom: 10px;
+            margin: 10px;
             padding: 15px;
+            width: calc(33.33% - 20px); /* Adjust the width based on your preference */
             background-color: #fff;
+            box-sizing: border-box;
         }
+
+        .add-suggestion-button {
+        display: block;
+        margin: 20px auto; /* Center the button horizontally */
+        background-color: #000; /* Black background color */
+        color: #fff;
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Add transition for smooth effect */
+    }
+
+    .add-suggestion-button:hover {
+        background-color: #fff !important; /* White background color on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+        color:black;
+    }
+
+        
+        .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        width: 50%; /* Adjust the width as needed */
+    }
+
+    .modal-content {
+        width: 100%; /* Make the modal content cover the full width of the modal */
+    }
+
+        .modal label {
+            display: block;
+            margin-bottom: 12px; /* Increase margin for better spacing */
+            font-size: 16px; /* Adjust the font size */
+        }
+
+        .modal input,
+        .modal textarea,
+        .modal select {
+            width: 100%;
+            padding: 12px; /* Increase padding for better input size */
+            margin-bottom: 20px; /* Increase margin for better spacing */
+            box-sizing: border-box;
+            font-size: 16px; /* Adjust the font size */
+        }
+
+        .modal button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 15px; /* Increase padding for a larger button */
+            border: none;
+            border-radius: 8px; /* Round the corners */
+            cursor: pointer;
+            font-size: 16px; /* Adjust the font size */
+            transition: background-color 0.3s ease;
+        }
+
+        .modal button:hover {
+            background-color: #45a049;
+        }
+        
     </style>
-    </style>
+    
 </head>
 
 <body>
     {% if data.isPresent %}
     <div class="idea-container" id="ideaContainer"></div>
     <div class="detail-container" id="detailContainer"></div>
-    <button onclick="openModal()">Add Suggestion</button>
+    <button onclick="openModal()" class="add-suggestion-button">Add Suggestion</button>
 
     <div class="modal" id="myModal">
         <div class="modal-content">
             <span onclick="closeModal()" style="cursor: pointer; float: right;">&times;</span>
             <h2>Add New Suggestion</h2>
-            <form id="suggestionForm">
+            <form id="suggestionForm" onsubmit="return submitForm(event);">
                 <label for="description">Description:</label>
                 <textarea id="description" name="description" required></textarea>
 
@@ -219,18 +137,21 @@
                     <option value="no">No</option>
                 </select>
 
-                <div id="additionalFields" style="display: none;">
+                <div id="additionalFields" style="display: none">
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input  type="text" id="name" name="name">
 
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input  type="email" id="email" name="email">
 
                     <label for="phone">Phone:</label>
                     <input type="tel" id="phone" name="phone">
                 </div>
 
-                <button type="button" onclick="submitForm(event)">Submit</button>
+                <!-- <input type="button" onclick="submitForm(event)">Submit</input> -->
+                <input type="submit" value="Submit" />
+                <!-- <button type="button">  -->
+
 
             </form>
         </div>
@@ -254,6 +175,17 @@
             const additionalFields = document.getElementById('additionalFields');
 
             additionalFields.style.display = (anonymousSelect.value === 'no') ? 'block' : 'none';
+            if(anonymousSelect.value === 'no'){
+                document.getElementById('name').setAttribute("required",true);
+                document.getElementById('email').setAttribute("required",true);
+                document.getElementById('phone').setAttribute("required",true);
+            }
+            else{
+                document.getElementById('name').removeAttribute("required");
+                document.getElementById('email').removeAttribute("required");
+                document.getElementById('phone').removeAttribute("required");
+                    
+            }
         }
 
         function submitForm(event) {
@@ -278,7 +210,7 @@
                 }
             }
             console.log('Data:', suggestiondata);
-
+            return 
             fetch( `/new_suggestion/${id}`, {
                 method: 'POST',
                 headers: {
@@ -308,7 +240,7 @@
                     closeModal();
                 });
             // Close the modal
-        }
+         }
 
         id= "";
         function showSuccessMessage() {
