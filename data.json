@@ -160,7 +160,34 @@
       "phone": "8972435"
     },
     "likes": 0,
-    "suggestions": [],
+    "suggestions": [
+      {
+        "description": "Can create lot of opportunities.",
+        "likes": 0,
+        "isAnonymous": false,
+        "user": {
+          "name": "Nandan",
+          "email": "nandan@gmail.com",
+          "phone": "7349314"
+        },
+        "id": 1
+      }
+    ],
     "id": 5
+  },
+  {
+    "title": "Social Media For college students",
+    "description": "Social Media For college students",
+    "tags": [
+      "tech"
+    ],
+    "user": {
+      "name": "Nandan",
+      "email": "nandan@gmail.com",
+      "phone": "871461"
+    },
+    "likes": 0,
+    "suggestions": [],
+    "id": 6
   }
 ]
