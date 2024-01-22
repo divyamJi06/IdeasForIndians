@@ -162,5 +162,20 @@
     "likes": 0,
     "suggestions": [],
     "id": 5
+  },
+  {
+    "title": "Social Media For college students",
+    "description": "Social Media For college students",
+    "tags": [
+      "tech"
+    ],
+    "user": {
+      "name": "Nandan",
+      "email": "nandan@gmail.com",
+      "phone": "871461"
+    },
+    "likes": 0,
+    "suggestions": [],
+    "id": 6
   }
 ]
