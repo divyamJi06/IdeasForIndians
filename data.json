@@ -91,13 +91,6 @@
           "phone": "964343415"
         },
         "id": 2
-      },
-      {
-        "description": "",
-        "likes": 0,
-        "isAnonymous": true,
-        "user": {},
-        "id": 3
       }
     ],
     "id": 2
@@ -134,39 +127,6 @@
           "phone": "79582454"
         },
         "id": 2
-      },
-      {
-        "description": "",
-        "likes": 0,
-        "isAnonymous": false,
-        "user": {
-          "name": "",
-          "email": "",
-          "phone": ""
-        },
-        "id": 3
-      },
-      {
-        "description": "",
-        "likes": 0,
-        "isAnonymous": false,
-        "user": {
-          "name": "",
-          "email": "",
-          "phone": ""
-        },
-        "id": 4
-      },
-      {
-        "description": "",
-        "likes": 0,
-        "isAnonymous": false,
-        "user": {
-          "name": "",
-          "email": "",
-          "phone": ""
-        },
-        "id": 5
       }
     ],
     "id": 3
@@ -202,20 +162,5 @@
     "likes": 0,
     "suggestions": [],
     "id": 5
-  },
-  {
-    "title": "",
-    "description": "",
-    "tags": [
-      ""
-    ],
-    "user": {
-      "name": "",
-      "email": "",
-      "phone": null
-    },
-    "likes": 0,
-    "suggestions": [],
-    "id": 6
   }
 ]
