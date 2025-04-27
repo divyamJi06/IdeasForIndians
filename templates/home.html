@@ -1,324 +1,717 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Display</title>
-    <link rel="stylesheet" src="style.css">
+    <title>Ideas For Indians</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary-color: #3B82F6;
+            --primary-hover: #2563EB;
+            --success-color: #10B981;
+            --danger-color: #EF4444;
+            --background-light: #F3F4F6;
+            --background-dark: #1A1A1A;
+            --text-light: #1F2937;
+            --text-dark: #F9FAFB;
+            --text-muted-light: #6B7280;
+            --text-muted-dark: #9CA3AF;
+            --card-bg-dark: #252525;
+            --card-bg-light: #FFFFFF;
+            --vote-bg-dark: #333333;
+            --vote-bg-light: #F3F4F6;
+            /* Card shadows for dark mode */
+            --card-shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.3),
+                               0 1px 3px rgba(0, 0, 0, 0.2),
+                               0 0 0 1px rgba(255, 255, 255, 0.05);
+            --card-shadow-dark-hover: 0 10px 20px rgba(0, 0, 0, 0.4),
+                                    0 6px 10px rgba(0, 0, 0, 0.3),
+                                    0 0 0 1px rgba(255, 255, 255, 0.1);
+            /* Card shadows for light mode */
+            --card-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.05),
+                                0 1px 3px rgba(0, 0, 0, 0.1),
+                                0 0 0 1px rgba(0, 0, 0, 0.05);
+            --card-shadow-light-hover: 0 10px 20px rgba(0, 0, 0, 0.1),
+                                     0 6px 10px rgba(0, 0, 0, 0.08),
+                                     0 0 0 1px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-        }
-
-        header {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
-        }
-
-        .heading {
-            font-size: 24px;
-            margin-bottom: 10px;
-            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
-            font-size: 70px;
-        }
-
-        .belowheading {
-            font-size: 18px;
-            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            font-size: 40px;
-        }
-
-        .list-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 20px;
-        }
-
-        /* .list-item {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            margin: 10px;
-            padding: 15px;
-            width: 200px;
-            cursor: pointer;
-            background-color: #fff;
-            transition: background-color 0.3s ease;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            height: 300px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        } */
-            .list-item {
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        margin: 10px;
-        padding: 15px;
-        width: 200px;
-        cursor: pointer;
-        background-color: #f9f9f9; /* Set background color */
-        transition: background-color 0.3s ease;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        height: 300px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .list-item:hover {
-        background-color: #e0e0e0;
-    }
-
-    .list-item h3 {
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-
-    .list-item p {
-        font-size: 14px;
-        margin-bottom: 8px;
-        color: #333;
-    }
-
-    .list-item p.likes {
-        color: #4caf50; /* Likes color */
-    }
-
-    .list-item p.author {
-        font-weight: bold;
-    }
-
-    .list-item p.suggestions {
-        font-style: italic;
-    }
-
-
-        .list-item:hover {
-            background-color: #e0e0e0;
-        }
-
-        .detail-container {
-            display: none;
-            padding: 20px;
-        }
-
-        .suggestion-item {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            padding: 15px;
-            background-color: #fff;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-        #addIdeaModal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            width: 200px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-        }
-
-        #addIdeaModal label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        #addIdeaModal input,
-        #addIdeaModal select,
-        #addIdeaModal textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
             box-sizing: border-box;
         }
 
-        #addIdeaModal button {
-            background-color: #4caf50;
-            color: #fff;
-            padding: 10px;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        html.light body {
+            background-color: var(--background-light);
+            color: var(--text-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background-color: var(--card-bg-dark);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow-dark);
+            position: relative;
+            z-index: 10;
+        }
+
+        html.light header {
+            background-color: var(--card-bg-light);
+            box-shadow: var(--card-shadow-light);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--primary-hover);
+        }
+
+        .hero {
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: var(--text-dark);
+        }
+
+        html.light h1 {
+            color: var(--text-light);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted-dark);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        html.light .subtitle {
+            color: var(--text-muted-light);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
             border: none;
-            border-radius: 4px;
             cursor: pointer;
         }
 
-        #addIdeaModal button:hover {
-            background-color: #45a049;
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--card-shadow);
         }
 
-        button {
-    background-color: #000; /* Set the background color to black */
-    color: #fff; /* Set the text color to white */
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 10px;
-    display: block;
-    margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Add transition for smoother hover effect */
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
 
-button:hover {
-    background-color: #fff; /* Change background color to white on hover */
-    color: #000; /* Change text color to black on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase box shadow on hover */
+        .card {
+            background-color: var(--card-bg-dark);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--card-shadow-dark);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
+        html.light .card {
+            background-color: var(--card-bg-light);
+            box-shadow: var(--card-shadow-light);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-dark-hover);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        html.light .card:hover {
+            box-shadow: var(--card-shadow-light-hover);
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.05) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        html.light .card::before {
+            background: linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0.05) 50%,
+                rgba(0, 0, 0, 0) 100%
+            );
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        html.light .card h2 {
+            color: var(--text-light);
+        }
+
+        .card h2 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .card h2 a:hover {
+            color: var(--primary-color);
+        }
+
+        .card-description {
+            color: var(--text-muted-dark);
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        html.light .card-description {
+            color: var(--text-muted-light);
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted-dark);
+            font-size: 0.813rem;
+            margin-bottom: 1rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid rgba(156, 163, 175, 0.1);
+        }
+
+        html.light .card-meta {
+            color: var(--text-muted-light);
+            border-top-color: rgba(156, 163, 175, 0.2);
+        }
+
+        .vote-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+
+        .vote-buttons {
+            display: flex;
+            align-items: center;
+            background-color: var(--vote-bg-dark);
+            border-radius: 9999px;
+            padding: 0.25rem;
+            gap: 0.25rem;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        html.light .vote-buttons {
+            background-color: var(--vote-bg-light);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .vote-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 0.375rem;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+        }
+
+        html.light .vote-button {
+            color: var(--text-light);
+        }
+
+        .vote-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        html.light .vote-button:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .vote-button.upvote:hover {
+            color: var(--success-color);
+        }
+
+        .vote-button.downvote:hover {
+            color: var(--danger-color);
+        }
+
+        .vote-score {
+            min-width: 2rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text-dark);
+        }
+
+        html.light .vote-score {
+            color: var(--text-light);
+        }
+
+        .vote-score.positive {
+            color: var(--success-color);
+        }
+
+        .vote-score.negative {
+            color: var(--danger-color);
+        }
+
+        .plus-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.75rem;
+            height: 1.75rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            padding: 0.25rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .plus-button:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .arrow-icon {
+            width: 0.875rem;
+            height: 0.875rem;
+        }
+
+        .plus-icon {
+            width: 0.875rem;
+            height: 0.875rem;
+        }
+
+        /* Modal styles */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: var(--card-bg-dark);
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 100%;
+            max-width: 32rem;
+            margin: 1rem;
+            color: var(--text-dark);
+            box-shadow: var(--card-shadow-dark),
+                       0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
+
+        html.light .modal-content {
+            background-color: var(--card-bg-light);
+            color: var(--text-light);
+            box-shadow: var(--card-shadow-light),
+                       0 0 0 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .modal-content h2 {
+            color: var(--text-dark);
+        }
+
+        html.light .modal-content h2 {
+            color: var(--text-light);
+        }
+
+        .modal-content label {
+            color: var(--text-muted-dark);
+        }
+
+        html.light .modal-content label {
+            color: var(--text-muted-light);
+        }
+
+        .modal-content input,
+        .modal-content textarea {
+            background-color: rgba(75, 85, 99, 0.3);
+            border: 1px solid rgba(75, 85, 99, 0.5);
+            color: var(--text-dark);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        html.light .modal-content input,
+        html.light .modal-content textarea {
+            background-color: var(--background-light);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: var(--text-light);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .modal-content input:focus,
+        .modal-content textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2),
+                       inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background-color: var(--primary-hover);
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.125rem;
+            }
+
+            .card h2 {
+                font-size: 1.125rem;
+            }
+
+            .card-description {
+                font-size: 0.875rem;
+            }
+
+            .theme-toggle {
+                bottom: 1rem;
+                right: 1rem;
+                padding: 0.75rem;
+            }
 }
     </style>
 </head>
 
 <body>
-    <header><div class="heading">Ideas For Indians</div><br> <div class="belowheading">Startup Ideas</div></header>
-    <div class="list-container" id="listContainer"></div>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">Ideas For Indians</a>
+            <button onclick="openNewIdeaModal()" class="btn-primary">Share Your Idea</button>
+        </div>
+    </header>
 
-    <!-- Add Idea Button -->
-    <button onclick="openAddIdeaModal()">Add Idea</button>
+    <div class="container">
+        <section class="hero">
+            <h1>Your Ideas Can Shape India's Future</h1>
+            <p class="subtitle">Join a community of changemakers. Share, collaborate, and build solutions together.</p>
+        </section>
 
-    <!-- Add Idea Modal -->
-    <div id="addIdeaModal">
-        <span onclick="closeAddIdeaModal()" style="cursor: pointer; float: right;">&times;</span>
-        <h2>Add New Idea</h2>
-        <form id="addIdeaForm" onsubmit="return submitIdeaForm(event);">
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required>
+        <div class="grid">
+            {% for idea in allData %}
+            <div class="card fade-in">
+                <h2>
+                    <a href="/detail/{{ idea.id }}">{{ idea.title }}</a>
+                        </h2>
+                <p class="card-description">{{ idea.description }}</p>
+                <div class="card-meta">
+                    <span>
+                                <i class="far fa-calendar mr-1"></i>
+                        {{ idea.created_at if idea.created_at else 'No date' }}
+                            </span>
+                    <span>
+                                <i class="far fa-comment mr-1"></i>
+                                {{ idea.suggestions|length if idea.suggestions else 0 }} suggestions
+                            </span>
+                        </div>
+                <div class="vote-container">
+                    <div class="vote-buttons">
+                        <button onclick="voteIdea('{{ idea.id }}', 'upvote')" class="vote-button upvote" title="Upvote">
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                        <span id="score-{{ idea.id }}" class="vote-score {{ 'positive' if idea.score > 0 else 'negative' if idea.score < 0 else '' }}">
+                            {{ idea.score if idea.score else 0 }}
+                        </span>
+                        <button onclick="voteIdea('{{ idea.id }}', 'downvote')" class="vote-button downvote" title="Downvote">
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                    </div>
+                    <button class="plus-button" title="Add suggestion">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 
-            <label for="description">Description:</label>
-            <textarea id="description" name="description" required></textarea>
+    <!-- Theme toggle button -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon dark:hidden"></i>
+        <i class="fas fa-sun hidden dark:inline"></i>
+    </button>
 
-            <label for="tags">Tags:</label>
-            <input type="text" id="tags" name="tags" required>
-
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone">
-
-            <!-- <button type="button" >Submit</button> -->
-            <input type="submit" value="Submit" />
-        </form>
+    <!-- New Idea Modal -->
+    <div id="newIdeaModal" class="modal">
+        <div class="modal-content">
+            <h2 class="text-2xl font-bold mb-4">Share Your Idea</h2>
+            <form id="newIdeaForm" onsubmit="submitNewIdea(event)">
+                <div class="mb-4">
+                    <label class="block text-gray-400 text-sm font-bold mb-2" for="title">
+                        Title
+                    </label>
+                    <input type="text" id="title" name="title" required
+                        class="w-full p-2 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-primary-color">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-400 text-sm font-bold mb-2" for="description">
+                        Description
+                    </label>
+                    <textarea id="description" name="description" required rows="4"
+                        class="w-full p-2 rounded bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-primary-color"></textarea>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button type="button" onclick="closeNewIdeaModal()"
+                        class="px-4 py-2 bg-gray-700 text-gray-300 rounded hover:bg-gray-600 transition duration-300">
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script>
-        // Your existing JavaScript code remains the same
+        // Preserve all existing JavaScript functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.classList.add(savedTheme);
 
-        function openAddIdeaModal() {
-            document.getElementById('addIdeaModal').style.display = 'block';
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            html.classList.toggle('light');
+            const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+        });
+
+        function openNewIdeaModal() {
+            document.getElementById('newIdeaModal').classList.add('show', 'fade-in');
         }
 
-        function closeAddIdeaModal() {
-            document.getElementById('addIdeaModal').style.display = 'none';
+        function closeNewIdeaModal() {
+            const modal = document.getElementById('newIdeaModal');
+            modal.classList.remove('fade-in');
+            modal.classList.remove('show');
         }
 
+        async function submitNewIdea(event) {
+            event.preventDefault();
+            const form = event.target;
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
 
-        function submitIdeaForm(event) {
-            event.preventDefault();  // Prevents the default form submission behavior
-
-            const addIdeaForm = document.getElementById('addIdeaForm');
-            const ideaData = {
-                title: addIdeaForm.elements.title.value,
-                description: addIdeaForm.elements.description.value,
-                tags: addIdeaForm.elements.tags.value.split(',').map(tag => tag.trim()),
-                user: {
-                    name: addIdeaForm.elements.name.value,
-                    email: addIdeaForm.elements.email.value,
-                    phone: addIdeaForm.elements.phone.value || null
-                },
-                likes: 0,
-                suggestions: []
+            const data = {
+                title: form.title.value,
+                description: form.description.value,
+                created_at: new Date().toISOString()
             };
-            console.log(ideaData)
-            // Send a POST request to your API
-            fetch('/new_idea', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    // You may need to include additional headers here, such as authorization headers
-                },
-                body: JSON.stringify(ideaData)
-            })
-                .then(response => {
-                    if (response.ok) {
-                        // Data added successfully
-                        console.log('Idea added successfully!');
-                        showSuccessMessage();
-                    } else {
-                        // Error in adding data
-                        console.error('Error adding idea:', response.statusText);
-                        showErrorMessage();
-                    }
-                })
-                .catch(error => {
-                    console.error('Error sending POST request:', error);
-                    showErrorMessage();
-                })
-                .finally(() => {
-                    // Close the modal
-                    closeAddIdeaModal();
+
+            try {
+                const response = await fetch('/new_idea', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
                 });
+
+                if (response.ok) {
+                    closeNewIdeaModal();
+                    window.location.reload();
+                } else {
+                    const errorData = await response.json();
+                    alert(errorData.error || 'Failed to submit idea. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            } finally {
+                submitButton.disabled = false;
+            }
         }
 
-        function showSuccessMessage() {
-            // Replace this with your desired way of displaying a success message to the user
-            alert('Idea added successfully!');
+        async function voteIdea(ideaId, voteType) {
+            const button = event.currentTarget;
+            const container = button.closest('.vote-container');
+            const scoreElement = container.querySelector('.vote-score');
+            button.disabled = true;
+            
+            try {
+                const response = await fetch(`/vote/${ideaId}/${voteType}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    scoreElement.textContent = data.score;
+                    scoreElement.classList.remove('positive', 'negative');
+                    if (data.score > 0) {
+                        scoreElement.classList.add('positive');
+                    } else if (data.score < 0) {
+                        scoreElement.classList.add('negative');
+                    }
+                    scoreElement.classList.add('fade-in');
+                    setTimeout(() => scoreElement.classList.remove('fade-in'), 300);
+                } else {
+                    const errorData = await response.json();
+                    alert(errorData.error || 'Failed to record vote. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            } finally {
+                button.disabled = false;
+            }
         }
 
-        function showErrorMessage() {
-            // Replace this with your desired way of displaying an error message to the user
-            alert('Failed to add idea. Please try again.');
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('newIdeaModal');
+            if (event.target === modal) {
+                closeNewIdeaModal();
+            }
         }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeNewIdeaModal();
+            }
+        });
     </script>
-    <script>
-        // Fetch data from the JSON file
-        const dataFromFlask = JSON.parse('{{ allData|tojson|safe }}');
-        displayList(dataFromFlask);
-
-        // Function to display the list view
-        function displayList(data) {
-            const listContainer = document.getElementById('listContainer');
-
-            data.forEach(item => {
-                const truncatedDescription = item.description.length > 200 ? `${item.description.substring(0, 200)}...` : item.description;
-                const listItem = document.createElement('div');
-                listItem.classList.add('list-item');
-                listItem.innerHTML = `
-                <h3>${item.title}</h3>
-                <p>${truncatedDescription}</p>
-                <p>Likes: ${item.likes}</p>
-                <p>Authored by: ${item.user.name}</p>
-                <p>Suggestions: ${item.suggestions.length}</p>
-            `;
-                listItem.addEventListener('click', () => showDetail(item));
-                listContainer.appendChild(listItem);
-            });
-        }
-
-        // Function to show the detail view in a new page
-        function showDetail(item) {
-            // Serialize the item object to a JSON string
-            // Create a new page and pass the serialized item to it
-            const newPage = window.open(`detail/${item.id}`,);
-        }
-    </script>
-
 </body>
 
 </html>

@@ -1,296 +1,676 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Page</title>
+    <title>Idea Details - Ideas For Indians</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary-color: #3B82F6;
+            --primary-hover: #2563EB;
+            --success-color: #10B981;
+            --danger-color: #EF4444;
+            --background-light: #F3F4F6;
+            --background-dark: #1A1A1A;
+            --text-light: #1F2937;
+            --text-dark: #F9FAFB;
+            --text-muted-light: #6B7280;
+            --text-muted-dark: #9CA3AF;
+            --card-bg-dark: #252525;
+            --card-bg-light: #FFFFFF;
+            --vote-bg-dark: #333333;
+            --vote-bg-light: #F3F4F6;
+            /* Card shadows for dark mode */
+            --card-shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.3),
+                               0 1px 3px rgba(0, 0, 0, 0.2),
+                               0 0 0 1px rgba(255, 255, 255, 0.05);
+            --card-shadow-dark-hover: 0 10px 20px rgba(0, 0, 0, 0.4),
+                                    0 6px 10px rgba(0, 0, 0, 0.3),
+                                    0 0 0 1px rgba(255, 255, 255, 0.1);
+            /* Card shadows for light mode */
+            --card-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.05),
+                                0 1px 3px rgba(0, 0, 0, 0.1),
+                                0 0 0 1px rgba(0, 0, 0, 0.05);
+            --card-shadow-light-hover: 0 10px 20px rgba(0, 0, 0, 0.1),
+                                     0 6px 10px rgba(0, 0, 0, 0.08),
+                                     0 0 0 1px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            box-sizing: border-box;
         }
 
-        .idea-container {
-            border: 1px solid #ccc;
-            border-radius: 8px; 
-            margin: 20px; /*Center the idea container*/
-            padding: 15px;
-            width: 96%; /*Take full width for the main idea*/
-            background-color: #fff;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .detail-container {
-            display: flex; /* Use flex to arrange suggestions horizontally */
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            align-items: flex-start; /* Align items to the start */
-            margin: 10px;
-            padding: 15px;
-            background-color: #fff;
+        html.light body {
+            background-color: var(--background-light);
+            color: var(--text-light);
+        }
+
+        .app-container {
+            background-color: var(--card-bg-dark);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            max-width: 1024px;
+            margin: 2rem auto;
+            box-shadow: var(--card-shadow-dark);
+            transition: all 0.3s ease;
+        }
+
+        html.light .app-container {
+            background-color: var(--card-bg-light);
+            border-color: rgba(0, 0, 0, 0.05);
+            box-shadow: var(--card-shadow-light);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: var(--card-bg-dark);
+            transition: all 0.3s ease;
+        }
+
+        html.light .header {
+            background-color: var(--card-bg-light);
+            border-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        html.light .back-link {
+            color: var(--text-light);
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+
+        .main-content {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        html.light .main-content {
+            border-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .main-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        html.light .main-content h2 {
+            color: var(--text-light);
+        }
+
+        .main-content p {
+            color: var(--text-muted-dark);
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        html.light .main-content p {
+            color: var(--text-muted-light);
+        }
+
+        .meta-info {
+            color: var(--text-muted-dark);
+            font-size: 0.9rem;
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        html.light .meta-info {
+            color: var(--text-muted-light);
+        }
+
+        .vote-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .vote-controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--vote-bg-dark);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        html.light .vote-controls {
+            background-color: var(--vote-bg-light);
+            border-color: rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .vote-button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            color: var(--text-dark);
+            transition: all 0.2s ease;
+        }
+
+        html.light .vote-button {
+            color: var(--text-light);
+        }
+
+        .vote-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        html.light .vote-button:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .vote-button.upvote:hover {
+            color: var(--success-color);
+        }
+
+        .vote-button.downvote:hover {
+            color: var(--danger-color);
+        }
+
+        .vote-score {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+        }
+
+        html.light .vote-score {
+            color: var(--text-light);
+        }
+
+        .vote-score.positive {
+            color: var(--success-color);
+        }
+
+        .vote-score.negative {
+            color: var(--danger-color);
+        }
+
+        .suggestions-container {
+            padding: 1.5rem;
+        }
+
+        .suggestions-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .suggestions-header h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        html.light .suggestions-header h3 {
+            color: var(--text-light);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
         }
 
         .suggestion-item {
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            margin: 10px;
-            padding: 15px;
-            width: calc(33.33% - 20px); /* Adjust the width based on your preference */
-            background-color: #fff;
-            box-sizing: border-box;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted-dark);
+            transition: all 0.3s ease;
         }
 
-        .add-suggestion-button {
-        display: block;
-        margin: 20px auto; /* Center the button horizontally */
-        background-color: #000; /* Black background color */
-        color: #fff;
-        padding: 15px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Add transition for smooth effect */
-    }
+        html.light .suggestion-item {
+            border-color: rgba(0, 0, 0, 0.05);
+            color: var(--text-muted-light);
+        }
 
-    .add-suggestion-button:hover {
-        background-color: #fff !important; /* White background color on hover */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
-        color:black;
-    }
+        .suggestion-item:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
 
-        
+        html.light .suggestion-item:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        /* Modal styles */
         .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
         display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        z-index: 999;
-        width: 50%; /* Adjust the width as needed */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
     }
 
     .modal-content {
-        width: 100%; /* Make the modal content cover the full width of the modal */
-    }
-
-        .modal label {
-            display: block;
-            margin-bottom: 12px; /* Increase margin for better spacing */
-            font-size: 16px; /* Adjust the font size */
-        }
-
-        .modal input,
-        .modal textarea,
-        .modal select {
+            background-color: var(--card-bg-dark);
+            border-radius: 1rem;
+            padding: 1.5rem;
             width: 100%;
-            padding: 12px; /* Increase padding for better input size */
-            margin-bottom: 20px; /* Increase margin for better spacing */
-            box-sizing: border-box;
-            font-size: 16px; /* Adjust the font size */
+            max-width: 500px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: var(--card-shadow-dark);
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
         }
 
-        .modal button {
-            background-color: #4caf50;
-            color: #fff;
-            padding: 15px; /* Increase padding for a larger button */
-            border: none;
-            border-radius: 8px; /* Round the corners */
+        html.light .modal-content {
+            background-color: var(--card-bg-light);
+            border-color: rgba(0, 0, 0, 0.05);
+            box-shadow: var(--card-shadow-light);
+        }
+
+        .modal-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        html.light .modal-content h2 {
+            color: var(--text-light);
+        }
+
+        .modal-content textarea {
+            width: 100%;
+            min-height: 150px;
+            background-color: var(--background-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            resize: none;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        html.light .modal-content textarea {
+            background-color: var(--background-light);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: var(--text-light);
+        }
+
+        .modal-content textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
-            font-size: 16px; /* Adjust the font size */
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .modal button:hover {
-            background-color: #45a049;
+        html.light .btn-secondary {
+            color: var(--text-light);
+            border-color: rgba(0, 0, 0, 0.1);
         }
-        
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        html.light .btn-secondary:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background-color: var(--primary-hover);
+        }
+
+        .theme-toggle .fa-sun {
+            display: none;
+        }
+
+        html.light .theme-toggle .fa-sun {
+            display: block;
+        }
+
+        html.light .theme-toggle .fa-moon {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .theme-toggle {
+                bottom: 1rem;
+                right: 1rem;
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
-    
 </head>
 
 <body>
-    {% if data.isPresent %}
-    <div class="idea-container" id="ideaContainer"></div>
-    <div class="detail-container" id="detailContainer"></div>
-    <button onclick="openModal()" class="add-suggestion-button">Add Suggestion</button>
+    <div class="app-container">
+        <header class="header">
+            <h1>Ideas For Indians</h1>
+            <a href="/" class="back-link">
+                Back to Ideas &nbsp;›
+            </a>
+        </header>
 
-    <div class="modal" id="myModal">
-        <div class="modal-content">
-            <span onclick="closeModal()" style="cursor: pointer; float: right;">&times;</span>
-            <h2>Add New Suggestion</h2>
-            <form id="suggestionForm" onsubmit="return submitForm(event);">
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" required></textarea>
-
-                <label for="anonymous">Anonymous:</label>
-                <select id="anonymous" name="anonymous" onchange="toggleFields()">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-
-                <div id="additionalFields" style="display: none">
-                    <label for="name">Name:</label>
-                    <input  type="text" id="name" name="name">
-
-                    <label for="email">Email:</label>
-                    <input  type="email" id="email" name="email">
-
-                    <label for="phone">Phone:</label>
-                    <input type="tel" id="phone" name="phone">
+        {% if data.isPresent %}
+        <div class="main-content">
+            <div class="vote-container">
+                <div>
+                    <h2>{{ data.data.title }}</h2>
+                    <p>{{ data.data.description }}</p>
+                    <div class="meta-info">
+                        <span>
+                            <i class="far fa-calendar mr-1"></i>
+                            {{ data.data.created_at if data.data.created_at else 'No date' }}
+                        </span>
+                        <span>
+                            <i class="far fa-comment mr-1"></i>
+                            {{ data.data.suggestions|length if data.data.suggestions else 0 }} suggestions
+                        </span>
+                    </div>
                 </div>
+                <div class="vote-controls">
+                    <button onclick="voteIdea('{{ data.data.id }}', 'upvote')" class="vote-button upvote" title="Upvote">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                    <span id="score-{{ data.data.id }}" class="vote-score {{ 'positive' if data.data.score > 0 else 'negative' if data.data.score < 0 else '' }}">
+                        {{ data.data.score if data.data.score else 0 }}
+                    </span>
+                    <button onclick="voteIdea('{{ data.data.id }}', 'downvote')" class="vote-button downvote" title="Downvote">
+                        <i class="fas fa-arrow-down"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-                <!-- <input type="button" onclick="submitForm(event)">Submit</input> -->
-                <input type="submit" value="Submit" />
-                <!-- <button type="button">  -->
+        <div class="suggestions-container">
+            <div class="suggestions-header">
+                <h3>Suggestions</h3>
+                <button onclick="openNewSuggestionModal()" class="btn-primary">Add Suggestion</button>
+            </div>
 
+                {% if data.data.suggestions %}
+                {% for suggestion in data.data.suggestions %}
+            <div class="suggestion-item">
+                <p>{{ suggestion.text }}</p>
+                <div class="meta-info">
+                    <span>
+                            <i class="far fa-calendar mr-1"></i>
+                        {{ suggestion.created_at if suggestion.created_at else 'No date' }}
+                        </span>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+            <div class="suggestion-item">
+                <p>No suggestions yet. Be the first to suggest!</p>
+            </div>
+            {% endif %}
+        </div>
+        {% else %}
+        <div class="main-content">
+            <h2>Idea Not Found</h2>
+            <p>The idea you're looking for doesn't exist or has been removed.</p>
+            <div class="meta-info">
+                <a href="/" class="btn-primary">Go Back to Ideas</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
 
+    <!-- New Suggestion Modal -->
+    <div id="newSuggestionModal" class="modal">
+        <div class="modal-content fade-in">
+            <h2>Add Suggestion</h2>
+            <form id="newSuggestionForm" onsubmit="submitNewSuggestion(event)">
+                <textarea id="suggestion" name="suggestion" required placeholder="Enter your suggestion here..."></textarea>
+                <div class="modal-footer">
+                    <button type="button" onclick="closeNewSuggestionModal()" class="btn-secondary">Cancel</button>
+                    <button type="submit" class="btn-primary">Submit</button>
+                </div>
             </form>
         </div>
     </div>
-    {% else %}
-        <p>No data found for this idea ID</p>
 
-        <a href="/">Home Page</a>
-    {% endif %}
+    <!-- Add theme toggle button before closing body tag -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
     <script>
-        function openModal() {
-            document.getElementById('myModal').style.display = 'flex';
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference, default to dark
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.classList.add(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('light');
+            html.classList.toggle('dark');
+            const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+        });
+
+        // Preserve all existing JavaScript functionality
+        function openNewSuggestionModal() {
+            const modal = document.getElementById('newSuggestionModal');
+            modal.style.display = 'flex';
+            // Small delay to trigger the transition
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
         }
 
-        function closeModal() {
-            document.getElementById('myModal').style.display = 'none';
+        function closeNewSuggestionModal() {
+            const modal = document.getElementById('newSuggestionModal');
+            modal.classList.remove('show');
+            // Wait for transition to complete before hiding
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
         }
 
-        function toggleFields() {
-            const anonymousSelect = document.getElementById('anonymous');
-            const additionalFields = document.getElementById('additionalFields');
-
-            additionalFields.style.display = (anonymousSelect.value === 'no') ? 'block' : 'none';
-            if(anonymousSelect.value === 'no'){
-                document.getElementById('name').setAttribute("required",true);
-                document.getElementById('email').setAttribute("required",true);
-                document.getElementById('phone').setAttribute("required",true);
-            }
-            else{
-                document.getElementById('name').removeAttribute("required");
-                document.getElementById('email').removeAttribute("required");
-                document.getElementById('phone').removeAttribute("required");
-                    
-            }
-        }
-
-        function submitForm(event) {
+        async function submitNewSuggestion(event) {
             event.preventDefault();
-            const suggestionForm = document.getElementById('suggestionForm');
-            const description = suggestionForm.elements.description.value;
-            const anonymous = suggestionForm.elements.anonymous.value;
-            const name = suggestionForm.elements.name ? suggestionForm.elements.name.value : null;
-            const email = suggestionForm.elements.email ? suggestionForm.elements.email.value : null;
-            const phone = suggestionForm.elements.phone ? suggestionForm.elements.phone.value : null;
+            const form = event.target;
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            
+            const data = {
+                text: form.suggestion.value,
+                created_at: new Date().toISOString()
+            };
 
-            // Do something with the form data (e.g., send it to the server)
-
-            suggestiondata = {
-                description: description,
-                likes: 0,
-                isAnonymous: suggestionForm.elements.anonymous.value === 'yes',
-                user: suggestionForm.elements.anonymous.value === 'yes' ? {} : {
-                    name: name,
-                    email: email,
-                    phone: phone
-                }
-            }
-            console.log('Data:', suggestiondata);
-            return 
-            fetch( `/new_suggestion/${id}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    // You may need to include additional headers here, such as authorization headers
-                },
-                body: JSON.stringify(suggestiondata)
-            })
-                .then(response => {
-                    if (response.ok) {
-                        // Data added successfully
-                        console.log('Suggestion added successfully!');
-                        showSuccessMessage();
-                    } else {
-                        // Error in adding data
-                        console.error('Error adding Suggestion:', response.statusText);
-                        showErrorMessage();
-                    }
-                })
-                .catch(error => {
-                    console.error('Error sending POST request:', error);
-                    showErrorMessage();
-                })
-                .finally(() => {
-                    // Close the modal
-                    // closeAddIdeaModal();
-                    closeModal();
+            try {
+                const response = await fetch('/new_suggestion/{{ data.data.id }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
                 });
-            // Close the modal
-         }
 
-        id= "";
-        function showSuccessMessage() {
-            // Replace this with your desired way of displaying a success message to the user
-            alert('Suggestion added successfully!');
+                if (response.ok) {
+                    closeNewSuggestionModal();
+                    window.location.reload();
+                } else {
+                    const errorData = await response.json();
+                    alert(errorData.error || 'Failed to submit suggestion. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            } finally {
+                submitButton.disabled = false;
+            }
         }
 
-        function showErrorMessage() {
-            // Replace this with your desired way of displaying an error message to the user
-            alert('Failed to add Suggestion. Please try again.');
+        async function voteIdea(ideaId, voteType) {
+            const button = event.currentTarget;
+            const container = button.closest('.vote-controls');
+            const scoreElement = container.querySelector('.vote-score');
+            button.disabled = true;
+            
+            try {
+                const response = await fetch(`/vote/${ideaId}/${voteType}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    scoreElement.textContent = data.score;
+                    scoreElement.classList.remove('positive', 'negative');
+                    if (data.score > 0) {
+                        scoreElement.classList.add('positive');
+                    } else if (data.score < 0) {
+                        scoreElement.classList.add('negative');
+                    }
+                    scoreElement.classList.add('fade-in');
+                    setTimeout(() => scoreElement.classList.remove('fade-in'), 300);
+                } else {
+                    const errorData = await response.json();
+                    alert(errorData.error || 'Failed to record vote. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            } finally {
+                button.disabled = false;
+            }
         }
 
-        // Fetch data from the JSON file
-        const dataFromFlask = JSON.parse('{{ data|tojson|safe }}');
-        if(dataFromFlask['isPresent'])
-        displayDetail(dataFromFlask['data']);
-
-        // Function to display the detail view
-        function displayDetail(item) {
-
-            const ideaItem = document.getElementById('ideaContainer');
-            ideaItem.classList.add('list-item');
-            id = item.id;
-            ideaItem.innerHTML = `
-                <h3>${item.title}</h3>
-                <p>${item.description}</p>
-                <p>Likes: ${item.likes}</p>
-                <p>Authored by: ${item.user.name}</p>
-                <p>Suggestions: ${item.suggestions.length}</p>
-            `;
-
-
-            const detailContainer = document.getElementById('detailContainer');
-            detailContainer.innerHTML = '';
-
-            item.suggestions.forEach(suggestion => {
-                const suggestionItem = document.createElement('div');
-                suggestionItem.classList.add('suggestion-item');
-                suggestionItem.innerHTML = `
-                <p><strong>Suggestion ID:</strong> ${suggestion.id}</p>
-                <p><strong>Likes:</strong> ${suggestion.likes}</p>
-                <p><strong>Anonymous:</strong> ${suggestion.isAnonymous ? 'Yes' : 'No'}</p>
-                <p><strong>Description:</strong> ${suggestion.description}</p>
-                <p><strong>Author:</strong> ${suggestion.user.name || 'Anonymous'}</p>
-            `;
-                detailContainer.appendChild(suggestionItem);
-            });
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('newSuggestionModal');
+            if (event.target === modal) {
+                closeNewSuggestionModal();
+            }
         }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeNewSuggestionModal();
+            }
+        });
     </script>
-
 </body>
-
 </html>

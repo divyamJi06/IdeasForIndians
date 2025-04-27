@@ -1,39 +1,299 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error</title>
+    <title>Error - Ideas For Indians</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary-color: #3B82F6;
+            --primary-hover: #2563EB;
+            --success-color: #10B981;
+            --danger-color: #EF4444;
+            --background-light: #F3F4F6;
+            --background-dark: #1A1A1A;
+            --text-light: #1F2937;
+            --text-dark: #F9FAFB;
+            --text-muted-light: #6B7280;
+            --text-muted-dark: #9CA3AF;
+            --card-bg-dark: #252525;
+            --card-bg-light: #FFFFFF;
+            /* Card shadows for dark mode */
+            --card-shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.3),
+                               0 1px 3px rgba(0, 0, 0, 0.2),
+                               0 0 0 1px rgba(255, 255, 255, 0.05);
+            --card-shadow-dark-hover: 0 10px 20px rgba(0, 0, 0, 0.4),
+                                    0 6px 10px rgba(0, 0, 0, 0.3),
+                                    0 0 0 1px rgba(255, 255, 255, 0.1);
+            /* Card shadows for light mode */
+            --card-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.05),
+                                0 1px 3px rgba(0, 0, 0, 0.1),
+                                0 0 0 1px rgba(0, 0, 0, 0.05);
+            --card-shadow-light-hover: 0 10px 20px rgba(0, 0, 0, 0.1),
+                                     0 6px 10px rgba(0, 0, 0, 0.08),
+                                     0 0 0 1px rgba(0, 0, 0, 0.08);
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-dark);
+            min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        html.light body {
+            background-color: var(--background-light);
+            color: var(--text-light);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .header {
+            background-color: var(--card-bg-dark);
+            padding: 1.5rem 0;
+            box-shadow: var(--card-shadow-dark);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        html.light .header {
+            background-color: var(--card-bg-light);
+            box-shadow: var(--card-shadow-light);
+            border-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--primary-hover);
+        }
+
+        .back-link {
+            color: var(--text-muted-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        html.light .back-link {
+            color: var(--text-muted-light);
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+
+        .error-card {
+            background-color: var(--card-bg-dark);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 32rem;
             text-align: center;
+            box-shadow: var(--card-shadow-dark);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        html.light .error-card {
+            background-color: var(--card-bg-light);
+            box-shadow: var(--card-shadow-light);
+            border-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .error-icon {
+            color: var(--danger-color);
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .error-title {
+            color: var(--danger-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .error-message {
+            color: var(--text-muted-dark);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        html.light .error-message {
+            color: var(--text-muted-light);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
         }
 
-        .error-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background-color: var(--primary-hover);
         }
 
-        h1 {
-            color: #f00;
+        .theme-toggle .fa-sun {
+            display: none;
+        }
+
+        html.light .theme-toggle .fa-sun {
+            display: block;
+        }
+
+        html.light .theme-toggle .fa-moon {
+            display: none;
+        }
+
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 640px) {
+            .theme-toggle {
+                bottom: 1rem;
+                right: 1rem;
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1rem;
+            }
+
+            .error-icon {
+                font-size: 3rem;
+            }
+
+            .error-title {
+                font-size: 1.25rem;
+            }
+
+            .error-card {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="error-container">
-        <h1>Error</h1>
-        <p>{{ error_message }}</p>
-        <p><a href="{{ url_for('home') }}">Go back to home page</a></p>
-    </div>
+    <header class="header">
+        <div class="container">
+            <div class="flex justify-between items-center">
+                <a href="/" class="logo">Ideas For Indians</a>
+                <a href="/" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Ideas
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="error-card fade-in">
+            <div class="error-icon">
+                <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <h1 class="error-title">Error</h1>
+            <p class="error-message">{{ error_message }}</p>
+            <a href="/" class="btn-primary">
+                <i class="fas fa-home"></i>
+                Go Back to Ideas
+            </a>
+        </div>
+    </main>
+
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.classList.add(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            html.classList.toggle('light');
+            const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+        });
+    </script>
 </body>
 </html>
